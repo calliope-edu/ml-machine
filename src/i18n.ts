@@ -48,6 +48,6 @@ export const t = derived(
 function determineInitialLang() {
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang');
-  if (urlLang === 'da' || urlLang === 'en') return urlLang;
+  if (urlLang === 'da' || urlLang === 'en' || urlLang === 'de') return urlLang;
   return 'da';
 }
