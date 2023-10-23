@@ -515,7 +515,7 @@ export default {
 		//In common.js
 		"alert.isRecording": "Du nimmst gerade auf!",
 		"alert.isTesting": "Du nimmst gerade auf!",
-		"alert.isTraining": "Du bildest gerade ein Model aus!",
+		"alert.isTraining": "Du trainierst gerade ein Model!",
 		"alert.isNotConnected": "Dein Calliope mini sollte angeschlossen sein!",
 		"alert.deleteGestureConfirm": "Bist du sicher, dass du die Klasse löschen willst ",
 		//In ml.ts
@@ -524,14 +524,14 @@ export default {
 		"alert.recordingsPerGesture": "Du brauchst mindestens drei Beispiele pro Klasse",
 		// HOME PAGE:
 		"content.index.heading": "Maschinelles Lernen zum Selbermachen",
-		"content.index.howBody": "Willkommen zum Datentrainer. Experimentiere und spiele mit maschinellem Lernen und entwickle deine eigenen Machine-Learning-Modelle. Beginne hier!",
+		"content.index.howBody": "Willkommen zum Datentraining. Experimentiere und spiele mit maschinellem Lernen und entwickle deine eigenen Machine-Learning-Modelle. Beginne hier!",
 		"content.index.ledDescription": "25 LED-Matrix",
 		"content.index.recordButtonDescription": "\"Aufnahme\"-Taste",
 		"content.index.videoHeading": "Intro Video",
 		"content.index.setupBody2": "Die Website nutzt die Bluetooth-Funktion, den Beschleunigungsmesser, die LEDs, die Tasten und die Töne des Calliope mini. Anschließend kann der Calliope mini über Bluetooth mit dem Computer verbunden werden, ohne ein USB-Kabel zu verwenden.",
 		"content.index.oldVersion": "Die alte Version findest du hier:",
 		"content.index.contactButton": "Kontakt",
-		"content.index.contactBody": "Wenn du Fehler und Auslassungen auf dieser Plattform findest, kannst du uns gerne schreiben. Falls du andere Wünsche, Ideen oder allgemeine Interessen hast, kannst du uns ebenfalls gerne kontaktieren. Die Ersteller dieser Plattform können kontaktiert werden unter:",
+		"content.index.contactBody": "Wenn du Fehler auf dieser Plattform findest, kannst du uns gerne schreiben. Falls du andere Wünsche, Ideen oder allgemeines Interesse hast, kannst du uns ebenfalls gerne kontaktieren. Die Ersteller dieser Plattform können kontaktiert werden unter:",
 		"content.index.contactBodyGithub": "Du kannst auch unsere Github-Seite besuchen:",
 		"content.index.contactMail": "keb@cs.au.dk",
 		"content.index.acknowledgement": "Entwickelt vom Center for Computational Thinking and Design, Universität Aarhus",
@@ -540,7 +540,7 @@ export default {
 		"content.data.record": "Aufnehmen",
 		"content.data.addData": "Daten hinzufügen",
 		"content.data.classHelpHeader": "Klasse",
-		"content.data.classHelpBody": "Eine Klasse beschreibt eine Art von Geste. Wir können Beispiele für eine bestimmte Art von Gesten aufzeichnen und die Beispiele in dieselbe Klasse einordnen. Der Trainer kann Muster in den Beispielen/Daten finden und diese Muster verwenden, um ein Modell zu 'trainieren', das diese Klasse von Gesten erkennen kann. Mehrere Beispiele führen in der Regel zu einem besseren Modell, wobei zu berücksichtigen ist, auf wie viele verschiedene Arten eine Geste ausgeführt werden kann.",
+		"content.data.classHelpBody": "Eine Klasse beschreibt eine Art von Geste. Wir können Beispiele für eine bestimmte Art von Geste aufzeichnen und die Beispiele in dieselbe Klasse einordnen. Das Training kann Muster in den Beispielen/Daten finden und diese Muster verwenden, um ein Modell zu 'trainieren', das diese Klasse von Gesten erkennen kann. Mehrere Beispiele führen in der Regel zu einem besseren Modell, wobei zu berücksichtigen ist, auf wie viele verschiedene Arten eine Geste ausgeführt werden kann.",
 		"content.data.classification": "Klassen",
 		"content.data.data": "Daten",
 		"content.data.choice": "Wahl",
@@ -581,7 +581,7 @@ export default {
 
 		// MODEL PAGE:
 		"content.model.trainModelFirstHeading": "Trainiere zuerst das Modell!",
-		"content.model.trainModelFirstBody": "Gehe auf die 'Trainer' Seite",
+		"content.model.trainModelFirstBody": "Gehe auf die 'Training' Seite",
 		"content.model.classification.helpHeading": "Wahrscheinlichkeitsmesser",
 		"content.model.classification.helpBody": "Für jede Vorhersage, die du triffst, gibt das Modell einen Prozentsatz an, der beschreibt, wie sicher das Modell in seiner Vorhersage ist. Diese Anzeige reicht von 0% bis 100%. Mit dem Schieberegler daneben kannst du festlegen, wie sicher das Modell in seiner Vorhersage sein soll, um eine Ausgabe zu machen (z. B. einen Ton abzuspielen)",
 		"content.model.output.soundOptionCongratulations": "Glückwunsch",
@@ -600,7 +600,7 @@ export default {
 		"content.model.output.prediction.descriptionBody": "Hier siehst du die Vorhersage des Modells für die aktuelle Geste. In der Anzeige kannst du sehen, wie zuversichtlich das Modell mit seiner Vorhersage ist.",
 
 		"content.model.output.ledOutput.descriptionTitle": "LED Ausgabe",
-		"content.model.output.ledOutput.descriptionBody": "Hier kannst du auswählen, wie sich die LEDs auf deinem Ausgabe-Calliope mini verhalten, wenn dein Modell Vorhersagen macht. Versuche, einige Muster zu zeichnen und sehe, wie sie auf dem Ausgabe-Calliope mini erscheinen, wenn du den Eingangs-Calliope mini bewegen.",
+		"content.model.output.ledOutput.descriptionBody": "Hier kannst du auswählen, wie sich die LEDs auf deinem Ausgabe-Calliope mini verhalten, wenn dein Modell Vorhersagen macht. Versuche, einige Muster zu zeichnen und sehe, wie sie auf dem Ausgabe-Calliope mini erscheinen, wenn du den Eingangs-Calliope mini bewegst.",
 
 		"content.model.output.sound.iconTitle": "Töne",
 		"content.model.output.sound.descriptionTitle": "Wiedergabe von Tönen",
@@ -617,15 +617,15 @@ export default {
 		"footer.connectButtonNotConnected": "Verbinde deinen Calliope mini",
 		"footer.disconnectButton": "Trennen",
 		"footer.helpHeader": "Live-Diagramm",
-		"footer.helpContent": "Sobald du einen Calliope mini angeschlossen hast, kannst du die Beschleunigungsdaten für alle drei Achsen in diesem Diagramm in Echtzeit beobachten. Versuche, deinen angeschlossenes Calliope mini zu bewegen, um zu sehen, wie die Daten auf deinem Computer aussehen!",
+		"footer.helpContent": "Sobald du einen Calliope mini angeschlossen hast, kannst du die Beschleunigungsdaten für alle drei Achsen in diesem Diagramm in Echtzeit beobachten. Versuche, deinen angeschlossenen Calliope mini zu bewegen, um zu sehen, wie die Daten auf deinem Computer aussehen!",
 		"footer.reconnecting":"Verbindung wird wiederhergestellt. Bitte warten",
 		//DATA MENU:
 		"menu.data.helpHeading": "Daten",
-		"menu.data.helpBody": "Um ein Modell darauf zu trainieren, verschiedene Bewegungen zu erkennen, brauchen wir saubere Beispiele für 'gutes Verhalten', die wir dem Trainer zeigen können. Hier kannst du Klassen (Arten von Gesten) erstellen und Beispiele für jede Klasse aufzeichnen. Es müssen mindestens 2 Klassen mit jeweils 3 Beispielen vorhanden sein, bevor der Trainer ein eigenes Modell trainieren kann.",
+		"menu.data.helpBody": "Um ein Modell darauf zu trainieren verschiedene Bewegungen zu erkennen, brauchen wir saubere Beispiele für die Geste, die wir dann dem Training zeigen können. Hier kannst du Klassen (Arten von Gesten) erstellen und Beispiele für jede Klasse aufzeichnen. Es müssen mindestens 2 Klassen mit jeweils 3 Beispielen vorhanden sein, bevor das Training ein eigenes Modell trainieren kann.",
 		"menu.data.examples": "Beispiele",
 		// TRAINER MENU:
-		"menu.trainer.helpHeading": "Trainer",
-		"menu.trainer.helpBody": "Der Trainer sieht sich die Beispiele in jeder der Klassen an und versucht zu 'lernen', wie die verschiedenen Klassen erkannt werden können, indem er nach Mustern in den Daten sucht. Hier kannst du ein Modell zur Erkennung verschiedener Gesten trainieren.", // In addition, you can configure the trainer, choose how the trainer should interpret the data and create test sets.",
+		"menu.trainer.helpHeading": "Training",
+		"menu.trainer.helpBody": "Das Training sieht sich die Beispiele in jeder der Klassen an und versucht zu 'lernen', wie die verschiedenen Klassen erkannt werden können, indem es nach Mustern in den Daten sucht. Hier kannst du ein Modell zur Erkennung verschiedener Gesten trainieren.", // In addition, you can configure the trainer, choose how the trainer should interpret the data and create test sets.",
 		"menu.trainer.notConnected1": "Du hast keinen Calliope mini angeschlossen.",
 		"menu.trainer.notConnected2": "Bitte beginne dies über die unten stehende Schaltfläche",
 		"menu.trainer.notEnoughDataHeader1": "Nicht genügend Daten\nzur Daten-Seite gehen",
@@ -690,7 +690,7 @@ export default {
 
 		"connectMB.usb.firmwareBroken.warning":"Wir haben Probleme mit der Calliope mini-Firmware festgestellt",
 		"connectMB.usb.firmwareBroken.content1":"Die Version des Calliope mini und der Firmware haben Probleme, die uns daran hindern, das Programm hochzuladen.",
-		"connectMB.usb.firmwareBroken.content2":"Um fortzufahren, müssen die Datei manuell übertragen werden oder die Firmware des Calliope mini aktualisiert werden.",
+		"connectMB.usb.firmwareBroken.content2":"Um fortzufahren, muss die Datei manuell übertragen werden oder die Firmware des Calliope mini aktualisiert werden.",
 		"connectMB.usb.firmwareBroken.content3":"Wir empfehlen, dass die Firmware des Calliope mini auf die neueste Version aktualisiert wird, um dieses Problem zu beheben.",
 		"connectMB.usb.firmwareBroken.content4":"Eine Anleitung dazu befindet sich auf der ",
 		"connectMB.usb.firmwareBroken.content4.website":"Calliope Webseite",
@@ -722,10 +722,10 @@ export default {
 		"cookies.overlay.answer.whatAreCookies": "Cookies sind kleine Datendateien, die auf dem Gerät gespeichert werden, das zum Surfen auf Websites verwendet wird.",
 		"cookies.overlay.answer.ourReasoning": "Wir verwenden Cookies, um Informationen über die Nutzung und Leistung der Website zu sammeln. Ohne diese Cookies sind wir nicht in der Lage, wichtige Informationen über die Leistung der Website zu sammeln.",
 		"cookies.overlay.answer.storageDuration": "Dies ist von Website zu Website und von der Verwendung des Cookies abhängig. Einige können nur für die aktuelle Sitzung gespeichert werden, während andere tagelang gespeichert werden können. Unsere Cookies werden für ein Jahr gespeichert.",
-		"cookies.overlay.answer.deleting": "Sie variiert von Browser zu Browser. Hier sind jedoch einige der Handbücher für die am häufigsten verwendeten Browser.",
+		"cookies.overlay.answer.deleting": "Dies variiert von Browser zu Browser. Hier sind jedoch einige der Handbücher für die am häufigsten verwendeten Browser.",
 		"cookies.overlay.answer.consentChange": "Derzeit wurde unsere Cookie-Richtlinie weder abgelehnt noch ihr zugestimmt. Sobald dies jedoch geschehen ist, können die Cookies gelöscht werden und die Zustimmung jederzeit geändert werden.",
 
-		"cookies.overlay.table.title": "Die Cookies, die wir verwendene",
+		"cookies.overlay.table.title": "Die Cookies, die wir verwenden",
 		"cookies.overlay.table.header.description": "Beschreibung",
 
 		"cookies.overlay.table.row.ai_user.description": "Wird von der Software Microsoft Application Insights verwendet, um statistische Nutzungs- und Telemetriedaten zu sammeln. Der Cookie speichert eine eindeutige Kennung, um Benutzer bei wiederholten Besuchen im Laufe der Zeit wiederzuerkennen.",
@@ -734,8 +734,8 @@ export default {
 
 		// COMPATIBILITY WARNING
 		"popup.compatibility.bluetooth.header": "Bluetooth-inkompatibler Browser!",
-		"popup.compatibility.bluetooth.explain": "Der Browser, den Sie gerade verwenden, unterstützt kein Bluetooth.",
-		"popup.compatibility.bluetooth.advice": "Bitte aktualisieren Sie Ihren Browser oder verwenden Sie einen anderen Browser aus unserer Liste der unterstützten Browser.",
+		"popup.compatibility.bluetooth.explain": "Der Browser, den du gerade verwendest, unterstützt kein Bluetooth.",
+		"popup.compatibility.bluetooth.advice": "Bitte aktualisieren deinen Browser oder verwende einen anderen Browser aus unserer Liste der unterstützten Browser.",
 
 		"popup.connectMB.USBCompatibility.transferStep.step1": "Das Verzeichnis öffnen, in das die Firmware heruntergeladen wurde. In der Regel befindet sich dieser Ort in dem Download-Ordner.",
 		"popup.connectMB.USBCompatibility.transferStep.step2": "Die Datei auf den Calliope mini im Dateiexplorer des Computers auf das Laufwerk 'MINI ziehen'.",
@@ -748,12 +748,12 @@ export default {
 		// CONNECTION LOST DIALOG
 
 		"dialog.connection.lost.header": "Verbindung offline",
-		"dialog.connection.lost.body": "Ihre Internetverbindung ist offline, einige Funktionen sind möglicherweise nicht richtig",
+		"dialog.connection.lost.body": "Ihre Internetverbindung ist offline, einige Funktionen arbeiten möglicherweise nicht richtig",
 
 		// OUTDATED MICROBIT WARNING
 
 		"popup.outdatedmicrobit.header": "Die Calliope mini-Firmware ist veraltet.",
-		"popup.outdatedmicrobit.text": "Wir empfehlen Ihnen dringend, sie jetzt zu aktualisieren, da einige Funktionen möglicherweise nicht wie erwartet funktionieren",
+		"popup.outdatedmicrobit.text": "Wir empfehlen dringend, diese jetzt zu aktualisieren, da einige Funktionen möglicherweise nicht wie erwartet funktionieren",
 		"popup.outdatedmicrobit.button": "Ich verstehe",
 	}
 };
