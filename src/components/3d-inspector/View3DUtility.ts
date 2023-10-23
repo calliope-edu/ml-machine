@@ -116,14 +116,17 @@ class Live3DUtility {
     return new Promise<THREE.Scene>((resolve, reject) => {
       // When loaded. Extract the actual model from the loaded model. Rotate it properly. Resolve.
       const onFinished = (gltf: GLTF) => {
-        const model = gltf.scene.children[0].children[0].children[0];
+        const model = gltf.scene;
         const group = new THREE.Scene();
         group.add(model);
-        model.lookAt(0, 0, 1);
+        model.lookAt(0, -1, 0);
+        model.rotateX(Math.PI / 2);
+        model.rotateY(Math.PI);
+        model.scale.set(0.5, 0.5, 0.5);
         resolve(group);
       };
 
-      this.loader.load('/assets/models/microbit.gltf', onFinished, onProgress, reject);
+      this.loader.load('/assets/models/mini_V3.gltf', onFinished, onProgress, reject);
     });
   }
 }
