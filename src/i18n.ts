@@ -49,5 +49,5 @@ function determineInitialLang() {
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang');
   if (urlLang === 'da' || urlLang === 'en' || urlLang === 'de') return urlLang;
-  return 'da';
+  return 'de';
 }
