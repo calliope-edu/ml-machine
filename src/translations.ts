@@ -502,7 +502,7 @@ export default {
 
 		// OUTDATED MICROBIT WARNING
 
-		"popup.outdatedmicrobit.header": "Your Calliope mini firmware is outdated.",
+		"popup.outdatedmicrobit.header": "Your Calliope mini USB-firmware is outdated.",
 		"popup.outdatedmicrobit.text": "We strongly recommend that you update it now, as some features may not work as expected.",
 		"popup.outdatedmicrobit.button": "I understand",
 	},
@@ -688,9 +688,9 @@ export default {
 		"connectMB.usb.manual.manualDownloadLink": "hier",
 		"connectMB.usb.manual.done": "Erledigt: Verbunden mit Bluetooth",
 
-		"connectMB.usb.firmwareBroken.warning":"Wir haben Probleme mit der Calliope mini-Firmware festgestellt",
-		"connectMB.usb.firmwareBroken.content1":"Die Version des Calliope mini und der Firmware haben Probleme, die uns daran hindern, das Programm hochzuladen.",
-		"connectMB.usb.firmwareBroken.content2":"Um fortzufahren, müssen die Datei manuell übertragen werden oder die Firmware des Calliope mini aktualisiert werden.",
+		"connectMB.usb.firmwareBroken.warning":"Wir haben Probleme mit der Calliope mini USB-Firmware festgestellt",
+		"connectMB.usb.firmwareBroken.content1":"Die Versionen des Calliope mini und der USB-Firmware haben Probleme, die uns daran hindern, das Programm hochzuladen.",
+		"connectMB.usb.firmwareBroken.content2":"Um fortzufahren, müssen die Datei manuell übertragen werden oder die USB-Firmware des Calliope mini aktualisiert werden.",
 		"connectMB.usb.firmwareBroken.content3":"Wir empfehlen, dass die Firmware des Calliope mini auf die neueste Version aktualisiert wird, um dieses Problem zu beheben.",
 		"connectMB.usb.firmwareBroken.content4":"Eine Anleitung dazu befindet sich auf der ",
 		"connectMB.usb.firmwareBroken.content4.website":"Calliope Webseite",
@@ -734,12 +734,12 @@ export default {
 
 		// COMPATIBILITY WARNING
 		"popup.compatibility.bluetooth.header": "Bluetooth-inkompatibler Browser!",
-		"popup.compatibility.bluetooth.explain": "Der Browser, den Sie gerade verwenden, unterstützt kein Bluetooth.",
-		"popup.compatibility.bluetooth.advice": "Bitte aktualisieren Sie Ihren Browser oder verwenden Sie einen anderen Browser aus unserer Liste der unterstützten Browser.",
+		"popup.compatibility.bluetooth.explain": "Dieser Brwoeser unterstützt kein Bluetooth.",
+		"popup.compatibility.bluetooth.advice": "Bitte aktualisiere den Browser oder verwende einen anderen Browser aus unserer Liste der unterstützten Browser.",
 
 		"popup.connectMB.USBCompatibility.transferStep.step1": "Das Verzeichnis öffnen, in das die Firmware heruntergeladen wurde. In der Regel befindet sich dieser Ort in dem Download-Ordner.",
 		"popup.connectMB.USBCompatibility.transferStep.step2": "Die Datei auf den Calliope mini im Dateiexplorer des Computers auf das Laufwerk 'MINI ziehen'.",
-		"popup.connectMB.USBCompatibility.transferStep.step3": "Once the file has finished transferring, the Calliope mini can be connected using Bluetooth.",
+		"popup.connectMB.USBCompatibility.transferStep.step3": "Sobald die Übertragung der Datei abgeschlossen ist, kann der Calliope mini über Bluetooth verbunden werden.",
 
 		"compatibility.platform.notSupported": "Sobald die Übertragung der Datei abgeschlossen ist, kann der Calliope mini über Bluetooth verbunden werden.",
 		"compatibility.platform.notSupported.joinDesktop": "Begleite uns auf dem Desktop.",
@@ -752,8 +752,8 @@ export default {
 
 		// OUTDATED MICROBIT WARNING
 
-		"popup.outdatedmicrobit.header": "Die Calliope mini-Firmware ist veraltet.",
-		"popup.outdatedmicrobit.text": "Wir empfehlen Ihnen dringend, sie jetzt zu aktualisieren, da einige Funktionen möglicherweise nicht wie erwartet funktionieren",
+		"popup.outdatedmicrobit.header": "Die Calliope mini USB-Firmware ist veraltet.",
+		"popup.outdatedmicrobit.text": "Wir empfehlen dringend, jetzt zu aktualisieren, da einige Funktionen möglicherweise nicht wie erwartet funktionieren",
 		"popup.outdatedmicrobit.button": "Ich verstehe",
 	}
 };
