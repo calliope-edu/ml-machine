@@ -648,10 +648,10 @@ export default {
 
 		"popup.connectMB.bluetooth.heading": "Verbindung über Bluetooth",
 		"popup.connectMB.bluetooth.cancelledConnection": "Die Verbindung wurde abgebrochen. Zur Fortsetzung des Vorgangs bitte erneut versuchen.",
-		"popup.connectMB.bluetooth.step0": "Den Calliope mini an eine Batterie anschließen",
+		"popup.connectMB.bluetooth.step0": "Calliope mini an ein Batteriefach anschließen",
 		"popup.connectMB.bluetooth.step1": "Das Muster so nachzeichnen, wie es auf dem Calliope mini angezeigt wird",
 		"popup.connectMB.bluetooth.step2": "Auf die Schaltfläche 'Verbinden' klicken.",
-		"popup.connectMB.bluetooth.step3": "Den Calliope mini auswählen und 'Verbinden' klicken.",
+		"popup.connectMB.bluetooth.step3": "Calliope mini auswählen und 'Verbinden' klicken.",
 		"popup.connectMB.bluetooth.connect": "Verbinden",
 		"popup.connectMB.bluetooth.connecting": "Verbinde...",
 		"popup.connectMB.bluetooth.invalidPattern": "Das gezeichnete Muster ist ungültig",
@@ -673,7 +673,7 @@ export default {
 		"connectMB.output.header": "Ein Calliope mini ist bereits verbunden",
 
 		"connectMB.usb.header": "Das Programm auf den Calliope mini herunterladen",
-		"connectMB.usb.body1": "Den Calliope mini mit einem USB-Kabel anschließen und auf 'Weiter' klicken.",
+		"connectMB.usb.body1": "Calliope mini mit einem USB-Kabel anschließen und auf 'Weiter' klicken.",
 		"connectMB.usb.body2": "Auf 'USB-Gerät suchen' klicken und dann 'Calliope mini V3 CMSIS-DAP' oder 'DAPLink CMSIS-DAP' in dem Popup-Fenster auswählen",
 		"connectMB.usb.button1": "Weiter",
 		"connectMB.usb.button2": "USB-Gerät finden",
