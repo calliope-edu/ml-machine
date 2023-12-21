@@ -41,6 +41,6 @@ const setLang = (lang: string) => {
 };
 
 localStorage.setItem('isTesting', 'true');
-setLang('da');
+setLang('de');
 
 export default setLang;
