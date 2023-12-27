@@ -8,14 +8,13 @@
  * Static configuration values. These values are not expected to change, while the application is running.
  */
 import { PinTurnOnState } from './components/output/PinSelectorUtil';
-import { Axes, Filters, FilterType } from './script/datafunctions';
 import MBSpecs from './script/microbit-interfacing/MBSpecs';
 import { HexOrigin } from './script/microbit-interfacing/Microbits';
 
 class StaticConfiguration {
   // in milliseconds, how long should be wait for reconnect before determining something catestrophic happened during the process?
   public static readonly reconnectTimeoutDuration: number = 7500;
-  public static readonly connectTimeoutDuration: number = 17000; // initial connection
+  public static readonly connectTimeoutDuration: number = 10000; // initial connection
 
   // After how long should we consider the connection lost if ping was not able to conclude?
   public static readonly connectionLostTimeoutDuration: number = 3000;
@@ -40,35 +39,27 @@ class StaticConfiguration {
   // Duration before assuming the microbit is outdated? (in milliseconds)
   public static readonly versionIdentificationTimeoutDuration = 4000;
 
+  // Link to the MakeCode firmware template
+  public static readonly makecodeFirmwareUrl =
+    'https://makecode.microbit.org/#pub:54705-16835-80762-83855';
+
   public static readonly isMicrobitOutdated = (origin: HexOrigin, version: number) => {
     // Current versions, remember to update these, whenever changes to firmware are made!
     if (origin === HexOrigin.UNKNOWN) return true;
 
     const versionNumbers = new Map();
-    versionNumbers.set(HexOrigin.MAKECODE, 1);
-    versionNumbers.set(HexOrigin.PROPRIETARY, 1);
+    versionNumbers.set(HexOrigin.MAKECODE, 1); // Change the number to advise users to update old hex files
+    versionNumbers.set(HexOrigin.PROPRIETARY, 1); // Change the number to advise users to update old hex files
     return versionNumbers.get(origin) !== version;
   };
 
-  public static readonly initialMLSettings = {
-    duration: 1800,
-    numSamples: 80,
-    minSamples: 80,
-    automaticClassification: true,
-    updatesPrSecond: 4,
-    numEpochs: 80,
-    learningRate: 0.5,
-    includedAxes: [Axes.X, Axes.Y, Axes.Z],
-    includedFilters: new Set<FilterType>([
-      Filters.MAX,
-      Filters.MEAN,
-      Filters.MIN,
-      Filters.STD,
-      Filters.PEAKS,
-      Filters.ACC,
-      Filters.ZCR,
-      Filters.RMS,
-    ]),
+  // Line colors are picked in the order of this array.
+  public static readonly liveGraphColors = ['#f9808e', '#80f98e', '#808ef9'];
+
+  // What will the min and max y-values on the livegraph be?
+  public static readonly liveGraphValueBounds = {
+    min: -2,
+    max: 2.3,
   };
 }
 export default StaticConfiguration;

@@ -4,50 +4,30 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { derived } from 'svelte/store';
-import translations from './translations';
+import { init, locale, register } from 'svelte-i18n';
+export { t } from 'svelte-i18n';
+import { get } from 'svelte/store';
 import { persistantWritable } from './script/stores/storeUtil';
+import browserLang from 'browser-lang';
 
-const initialLang = determineInitialLang();
-// export let locale: string;
-export const locale = persistantWritable('lang', initialLang);
+register('en', () => import('./messages/ui.en.json'));
+register('da', () => import('./messages/ui.da.json'));
+register('de', () => import('./messages/ui.de.json'));
 
-export const locales: string[] = Object.keys(translations);
+const initialLocale = browserLang({
+  languages: ['en', 'da', 'de'],
+  fallback: 'de',
+});
 
-function translate(locale: string, key: string, vars: object): string {
-  // Let's throw some errors if we're trying to use keys/locales that don't exist.
-  // We could improve this by using Typescript and/or fallback values.
-  // if (!key) throw new Error("no key provided to $t()");
-  // if (!locale) throw new Error(`no translation for key "${key}"`);
+const persistantLocale = persistantWritable('lang', initialLocale);
 
-  // Grab the translation from the translations object.
-  // @ts-ignore
-  let text: string | undefined = translations[locale][key];
-  if (text == null) {
-    console.warn(`no translation found for ${locale}.${key}`);
-    return key; // Use the key as fallback
+locale.subscribe(newLocal => {
+  if (newLocal) {
+    persistantLocale.set(newLocal);
   }
+});
 
-  // Replace any passed in variables in the translation string.
-  Object.keys(vars).map(k => {
-    const regex = new RegExp(`{{${k}}}`, 'g');
-    // @ts-ignore
-    text = text.replace(regex, vars[k]);
-  });
-
-  return text;
-}
-
-export const t = derived(
-  locale,
-  $locale =>
-    (key: string, vars = {}) =>
-      translate($locale, key, vars),
-);
-
-function determineInitialLang() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const urlLang = urlParams.get('lang');
-  if (urlLang === 'da' || urlLang === 'en' || urlLang === 'de') return urlLang;
-  return 'de';
-}
+await init({
+  fallbackLocale: 'de',
+  initialLocale: get(persistantLocale),
+});

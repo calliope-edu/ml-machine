@@ -1,5 +1,5 @@
 /**
- * @jest-environment jsdom
+ * @vitest-environment jsdom
  */
 /**
  * (c) 2023, Center for Computational Thinking and Design at Aarhus University and contributors
@@ -8,11 +8,10 @@
  */
 
 import fs from 'fs';
-import 'jest-expect-message';
 import * as path from 'path';
 
 // Place files you wish to ignore by name in here
-const ignoredFiles: string[] = ['.DS_Store'];
+const ignoredFiles: string[] = ['.DS_Store', 'ui.da.json', 'ui.en.json', 'README.md'];
 const directoriesToScan = ['./src/', './microbit/v2/source/', './microbit/v1/source/'];
 
 const licenseIdentifierStringContributors =

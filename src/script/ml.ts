@@ -9,7 +9,6 @@ import {
   bestPrediction,
   gestureConfidences,
   type GestureData,
-  gestures,
   getPrevData,
   model,
   settings,
@@ -21,7 +20,8 @@ import { get, type Unsubscriber } from 'svelte/store';
 import { t } from '../i18n';
 import * as tf from '@tensorflow/tfjs';
 import { LayersModel, SymbolicTensor, Tensor } from '@tensorflow/tfjs';
-import Gestures from './Gestures';
+import { classifier, gestures, liveAccelerometerData } from './stores/Stores';
+import Repositories from './repository/Repositories';
 
 let text: (key: string, vars?: object) => string;
 t.subscribe(t => (text = t));
@@ -124,10 +124,10 @@ export function trainModel() {
     validationSplit: 0.1,
     callbacks: { onTrainEnd }, // onEpochEnd <-- use this to make loading animation
   }).catch(err => {
-    trainingStatus.update(() => TrainingStatus.Failure);
+    trainingStatus.set(TrainingStatus.Failure);
     console.error('tensorflow training process failed:', err);
   });
-
+  trainingStatus.set(TrainingStatus.Success);
   model.set(nn);
 }
 
@@ -257,8 +257,12 @@ function setupPredictionInterval(): void {
 export function classify() {
   // Get currentState to check whether the prediction has been interrupted by other processes
   const currentState = get(state);
+  const currentTrainingStatus = get(trainingStatus);
   const hasBeenInterrupted =
-    !currentState.isPredicting || currentState.isRecording || currentState.isTraining;
+    !currentState.isPredicting ||
+    currentState.isRecording ||
+    currentState.isTraining ||
+    currentTrainingStatus !== TrainingStatus.Success;
 
   if (hasBeenInterrupted) {
     if (predictionInterval !== undefined) {
@@ -295,10 +299,9 @@ function tfHandlePrediction(result: Float32Array) {
   const gestureData = get(gestures);
 
   gestureData.forEach(({ ID }, index) => {
-    Gestures.getConfidence(ID).update(val => {
-      val = result[index];
-      return val;
-    });
+    Repositories.getInstance()
+      .getModelRepository()
+      .setGestureConfidence(ID, result[index]);
     gestureConfidences.update(confidenceMap => {
       confidenceMap[ID] = result[index];
       return confidenceMap;
@@ -312,7 +315,14 @@ function tfHandlePrediction(result: Float32Array) {
 
   for (const gesture of get(gestures)) {
     if (gesture.ID === bestGestureID) {
-      bestPrediction.set({ ...gesture, confidence: bestConfidence });
+      bestPrediction.set({
+        ...gesture,
+        confidence: {
+          currentConfidence: bestConfidence,
+          requiredConfidence: gesture.confidence.requiredConfidence,
+          isConfident: gesture.confidence.isConfident,
+        },
+      });
     }
   }
 }
