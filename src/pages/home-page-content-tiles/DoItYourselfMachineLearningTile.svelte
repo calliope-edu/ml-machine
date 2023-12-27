@@ -41,5 +41,4 @@
 </p>
 <br />
 <p>
-  {$t('content.index.oldVersion')}
 </p>
