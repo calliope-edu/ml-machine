@@ -12,10 +12,11 @@ import browserLang from 'browser-lang';
 
 register('en', () => import('./messages/ui.en.json'));
 register('da', () => import('./messages/ui.da.json'));
+register('de', () => import('./messages/ui.de.json'));
 
 const initialLocale = browserLang({
-  languages: ['en', 'da'],
-  fallback: 'en',
+  languages: ['en', 'da', 'de'],
+  fallback: 'de',
 });
 
 const persistantLocale = persistantWritable('lang', initialLocale);
@@ -27,6 +28,6 @@ locale.subscribe(newLocal => {
 });
 
 await init({
-  fallbackLocale: 'en',
+  fallbackLocale: 'de',
   initialLocale: get(persistantLocale),
 });
