@@ -8,19 +8,26 @@ import re
 
 import os, re, json, xml.etree.ElementTree
 from optparse import OptionParser
+import subprocess
 
 
 def system(cmd):
     if os.system(cmd) != 0:
       sys.exit(1)
 
-def build(clean, verbose = False):
+def build(clean, verbose = False, parallelism = 10):
     if platform.system() == "Windows":
         # configure
         system("cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -G \"Ninja\"")
 
+        if clean:
+            system("ninja clean")
+
         # build
-        system("ninja")
+        if verbose:
+            system("ninja -j {} --verbose".format(parallelism))
+        else:
+            system("ninja -j {}".format(parallelism))
     else:
         # configure
         system("cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -G \"Unix Makefiles\"")
@@ -30,9 +37,9 @@ def build(clean, verbose = False):
 
         # build
         if verbose:
-            system("make -j 10 VERBOSE=1")
+            system("make -j {} VERBOSE=1".format(parallelism))
         else:
-            system("make -j 10")
+            system("make -j {}".format(parallelism))
 
 def read_json(fn):
     json_file = ""
@@ -52,12 +59,16 @@ def read_config():
     target = read_json("libraries/" + targetdir + "/target.json")
     return (codal, targetdir, target)
 
-def update(allow_detached=False):
+def update(allow_detached=False, sync_dev=False):
     (codal, targetdir, target) = read_config()
     dirname = os.getcwd()
     for ln in target['libraries']:
         os.chdir(dirname + "/libraries/" + ln['name'])
-        system("git checkout " + ln['branch'])
+        if sync_dev:
+            default_branch = list(filter( lambda v: v.strip().startswith('HEAD'), str(subprocess.check_output( ["git", "remote", "show", "origin"] ), "utf8").splitlines()))[0].split(":")[1].strip()
+            system("git checkout " + default_branch)
+        else:
+            system("git checkout " + ln['branch'])
         system("git pull")
     os.chdir(dirname + "/libraries/" + targetdir)
     if ("HEAD detached" in os.popen('git branch').read().strip() and
@@ -74,22 +85,41 @@ def revision(rev):
     os.chdir(dirname)
     update(True)
 
-def printstatus():
+def printstatus( logLines = 3, detail = False ):
     print("\n***%s" % os.getcwd())
-    system("git status -s")
-    system("git rev-parse HEAD")
-    system("git branch --show-current")
+    branch = str(subprocess.check_output( [ "git", "branch", "--show-current"] ), "utf8").strip()
+    hash   = str(subprocess.check_output( [ "git", "rev-parse", "HEAD" ] ), "utf8").strip()
+    tag    = "..."
+    try:
+        tag = str(subprocess.check_output( [ "git", "describe", "--tags", "--abbrev=0" ], stderr=subprocess.STDOUT ), "utf8").strip()
+    except subprocess.CalledProcessError as e:
+        tag = "~none~"
+    
+    print( "Branch: {branch}, Nearest Tag: {tag} ({hash})".format(branch=branch, tag=tag, hash=hash) )
+    if detail:
+        system( "git --no-pager log -n {} --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit".format(logLines) )
+        print( "" )
+        
+    system("git status -sb")
+    print( "" )
+    
 
-def status():
+def status( logLines = 3, detail = True, libs = [] ):
     (codal, targetdir, target) = read_config()
     dirname = os.getcwd()
-    for ln in target['libraries']:
-        os.chdir(dirname + "/libraries/" + ln['name'])
-        printstatus()
-    os.chdir(dirname + "/libraries/" + targetdir)
-    printstatus()
-    os.chdir(dirname)
-    printstatus()
+
+    if len(libs) == 0:
+        for ln in target['libraries']:
+            os.chdir(dirname + "/libraries/" + ln['name'])
+            printstatus( logLines, detail )
+        os.chdir(dirname + "/libraries/" + targetdir)
+        printstatus( logLines, detail )
+        os.chdir(dirname)
+        printstatus( logLines, detail )
+    else:
+        for lib in libs:
+            os.chdir(dirname + "/libraries/" + lib)
+            printstatus( logLines, detail )
 
 def get_next_version(options):
     if options.version:
