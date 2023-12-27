@@ -41,7 +41,7 @@ class StaticConfiguration {
 
   // Link to the MakeCode firmware template
   public static readonly makecodeFirmwareUrl =
-    'https://makecode.microbit.org/#pub:54705-16835-80762-83855';
+    'https://makecode.calliope.cc/#pub:_efLVUEYT3YUV';
 
   public static readonly isMicrobitOutdated = (origin: HexOrigin, version: number) => {
     // Current versions, remember to update these, whenever changes to firmware are made!
