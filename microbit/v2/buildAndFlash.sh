@@ -2,4 +2,4 @@
 
 python3 build.py
 
-cp $(pwd)/MICROBIT.hex /Volumes/MICROBIT
+cp $(pwd)/MICROBIT.hex /Volumes/MINI
