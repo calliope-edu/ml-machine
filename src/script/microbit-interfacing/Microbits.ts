@@ -801,7 +801,7 @@ class Microbits {
    */
   private static sendLegacySoundMessage(value: string) {
     if (!this.assignedOutputMicrobit) {
-      throw new Error('No output Calliope mini has been set');
+      throw new Error('No output microbit has been set');
     }
 
     if (!this.outputUart) {
@@ -1026,7 +1026,7 @@ class Microbits {
     mb: MicrobitBluetooth,
   ): Promise<BluetoothRemoteGATTCharacteristic> {
     if (!mb) {
-      throw new Error('Cannot get matrix of undefined Calliope mini');
+      throw new Error('Cannot get matrix of undefined Calliope mini.');
     }
     const LEDService = await mb.getLEDService();
     return await LEDService.getCharacteristic(MBSpecs.Characteristics.LED_MATRIX_STATE);
