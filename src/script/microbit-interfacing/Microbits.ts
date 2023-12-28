@@ -36,7 +36,7 @@ type UARTMessageType = 'g' | 's';
 class Microbits {
   public static hexFiles: { 1: string; 2: string; universal: string } = {
     1: 'firmware/ml-microbit-cpp-version-combined.hex',
-    2: 'firmware/MICROBIT.hex',
+    2: 'firmware/FIRMWARE.hex',
     universal: 'firmware/universal-hex.hex',
   };
   private static assignedInputMicrobit: MicrobitBluetooth | undefined = undefined;
@@ -156,7 +156,7 @@ class Microbits {
    */
   public static getInput(): MicrobitBluetooth {
     if (!this.isInputAssigned() || !this.assignedInputMicrobit) {
-      throw new Error('Cannot get input microbit, it is not assigned!');
+      throw new Error('Cannot get input, it is not assigned!');
     }
     return this.assignedInputMicrobit;
   }
@@ -166,7 +166,7 @@ class Microbits {
    */
   public static getOutput(): MicrobitBluetooth {
     if (!this.isOutputAssigned() || !this.assignedOutputMicrobit) {
-      throw new Error('Cannot get output microbit, it is not assigned!');
+      throw new Error('Cannot get output, it is not assigned!');
     }
     return this.assignedOutputMicrobit;
   }
@@ -306,7 +306,7 @@ class Microbits {
   private static async listenToInputServices(): Promise<void> {
     const connectionBehaviour = ConnectionBehaviours.getInputBehaviour();
     if (!this.isInputConnected()) {
-      throw new Error('Could not listen to services, no microbit connected!');
+      throw new Error('Could not listen to services, no Calliope mini connected!');
     }
     await this.getInput().listenToAccelerometer(
       connectionBehaviour.accelerometerChange.bind(connectionBehaviour),
@@ -333,7 +333,7 @@ class Microbits {
     const connectionBehaviour = ConnectionBehaviours.getOutputBehaviour();
 
     if (!this.isOutputConnected()) {
-      throw new Error('Could not listen to services, no microbit connected!');
+      throw new Error('Could not listen to services, no Calliope mini connected!');
     }
     this.outputIO = await this.getIOOf(this.getOutput());
     this.outputMatrix = await this.getMatrixOf(this.getOutput());
@@ -527,7 +527,7 @@ class Microbits {
    */
   public static getAssignedOutput(): MicrobitBluetooth {
     if (!this.assignedOutputMicrobit) {
-      throw new Error('No output microbit has been assigned!');
+      throw new Error('No output has been assigned!');
     }
     return this.assignedOutputMicrobit;
   }
@@ -537,7 +537,7 @@ class Microbits {
    */
   public static getAssignedInput(): MicrobitBluetooth {
     if (!this.assignedInputMicrobit) {
-      throw new Error('No input microbit has been assigned!');
+      throw new Error('No input has been assigned!');
     }
     return this.assignedInputMicrobit;
   }
@@ -559,7 +559,7 @@ class Microbits {
    */
   public static expelInputAndOutput() {
     if (!this.isInputAssigned() && !this.isOutputAssigned()) {
-      throw new Error('Could not disconnect microbits, none have been connected yet!');
+      throw new Error('Could not disconnect Calliope mini, none have been connected yet!');
     }
 
     if (this.isInputOutputTheSame()) {
@@ -589,7 +589,7 @@ class Microbits {
    */
   public static expelOutput() {
     if (!this.isOutputAssigned()) {
-      throw new Error('Cannot disconnect, no output micro:bit is connected');
+      throw new Error('Cannot disconnect, no output Calliope mini is connected');
     }
     ConnectionBehaviours.getOutputBehaviour().onExpelled(true);
     if (this.isInputOutputTheSame()) {
@@ -608,7 +608,7 @@ class Microbits {
    */
   public static expelInput() {
     if (!this.isInputAssigned()) {
-      throw new Error('Cannot disconnect, no input micro:bit is connected');
+      throw new Error('Cannot disconnect, no input Calliope mini is connected');
     }
     ConnectionBehaviours.getInputBehaviour().onExpelled(true);
     if (this.isInputOutputTheSame()) {
@@ -625,7 +625,7 @@ class Microbits {
    */
   public static sendToOutputPin(data: { pin: MBSpecs.UsableIOPin; on: boolean }[]) {
     if (!this.isOutputAssigned()) {
-      throw new Error('No output microbit is connected, cannot send to pin.');
+      throw new Error('No output Calliope mini is connected, cannot send to pin.');
     }
 
     if (!this.outputIO) {
@@ -674,7 +674,7 @@ class Microbits {
 
   public static setOutputMatrix(matrix: boolean[]) {
     if (!this.isOutputAssigned()) {
-      throw new Error('No output microbit is connected, cannot set matrix.');
+      throw new Error('No output Calliope mini is connected, cannot set matrix.');
     }
     if (!this.outputMatrix) {
       throw new Error(
@@ -697,12 +697,12 @@ class Microbits {
   public static useInputAsOutput() {
     if (!this.isInputAssigned()) {
       throw new Error(
-        'No input microbit has be defined! Please check that it is connected before using it',
+        'No input Calliope mini has be defined! Please check that it is connected before using it',
       );
     }
     if (!this.inputName) {
       throw new Error(
-        'Something went wrong. Input microbit was specified, but without name!',
+        'Something went wrong. Input Calliope mini was specified, but without name!',
       );
     }
     this.assignedOutputMicrobit = this.getInput();
@@ -749,7 +749,7 @@ class Microbits {
 
   public static getInputVersion(): MBSpecs.MBVersion {
     if (!this.inputVersion) {
-      throw new Error('No version has been set, has the micro:bit been connected?');
+      throw new Error('No version has been set, has the Calliope mini been connected?');
     }
 
     return this.inputVersion;
@@ -757,7 +757,7 @@ class Microbits {
 
   public static getOutputVersion(): MBSpecs.MBVersion {
     if (!this.outputVersion) {
-      throw new Error('No version has been set, has the micro:bit been connected?');
+      throw new Error('No version has been set, has the Calliope mini been connected?');
     }
 
     return this.outputVersion;
@@ -765,14 +765,14 @@ class Microbits {
 
   public static getOutputName(): string {
     if (!this.outputName) {
-      throw new Error('No name has been set, has the micro:bit connected?');
+      throw new Error('No name has been set, has the Calliope mini connected?');
     }
     return this.outputName;
   }
 
   public static getInputName(): string {
     if (!this.inputName) {
-      throw new Error('No name has been set, has the micro:bit connected?');
+      throw new Error('No name has been set, has the Calliope mini connected?');
     }
     return this.inputName;
   }
@@ -784,7 +784,7 @@ class Microbits {
    */
   private static sendToOutputUart(type: UARTMessageType, value: string) {
     if (!this.assignedOutputMicrobit) {
-      throw new Error('No output microbit has been set');
+      throw new Error('No output Calliope mini has been set');
     }
 
     if (!this.outputUart) {
@@ -801,7 +801,7 @@ class Microbits {
    */
   private static sendLegacySoundMessage(value: string) {
     if (!this.assignedOutputMicrobit) {
-      throw new Error('No output microbit has been set');
+      throw new Error('No output Calliope mini has been set');
     }
 
     if (!this.outputUart) {
@@ -828,7 +828,7 @@ class Microbits {
    */
   public static sendUARTGestureMessageToOutput(value: string) {
     if (!this.isOutputReady()) {
-      throw new Error('No output microbit is ready to receive UART gesture messages');
+      throw new Error('No output Calliope mini is ready to receive UART gesture messages');
     }
     this.sendToOutputUart('g', value);
   }
@@ -852,7 +852,7 @@ class Microbits {
    */
   public static getLinked(): MicrobitUSB {
     if (!this.isMicrobitLinked() || !this.linkedMicrobit) {
-      throw new Error('No microbit has been linked!');
+      throw new Error('No Calliope mini has been linked!');
     }
 
     return this.linkedMicrobit;
@@ -863,7 +863,7 @@ class Microbits {
    */
   public static async unlinkMicrobit() {
     if (!this.isMicrobitLinked()) {
-      throw new Error('Cannot disconnect USB. No USB microbit could be found');
+      throw new Error('Cannot disconnect USB. No USB Calliope mini could be found');
     }
     await this.getLinked().disconnect();
   }
@@ -918,7 +918,7 @@ class Microbits {
    */
   private static disconnectOrFlagInputGATT() {
     if (!this.assignedInputMicrobit) {
-      throw new Error('No input micro:bit could be found while disconnecting from GATT');
+      throw new Error('No input Calliope mini could be found while disconnecting from GATT');
     }
     if (this.isInputReconnecting) {
       this.inputFlaggedForDisconnect = true;
@@ -933,7 +933,7 @@ class Microbits {
    */
   private static disconnectOrFlagOutputGATT() {
     if (!this.assignedOutputMicrobit) {
-      throw new Error('No output micro:bit could be found while disconnecting from GATT');
+      throw new Error('No output Calliope mini could be found while disconnecting from GATT');
     }
     if (this.isOutputReconnecting) {
       this.outputFlaggedForDisconnect = true;
@@ -1026,7 +1026,7 @@ class Microbits {
     mb: MicrobitBluetooth,
   ): Promise<BluetoothRemoteGATTCharacteristic> {
     if (!mb) {
-      throw new Error('Cannot get matrix of undefined microbit');
+      throw new Error('Cannot get matrix of undefined Calliope mini');
     }
     const LEDService = await mb.getLEDService();
     return await LEDService.getCharacteristic(MBSpecs.Characteristics.LED_MATRIX_STATE);
@@ -1036,7 +1036,7 @@ class Microbits {
     mb: MicrobitBluetooth,
   ): Promise<BluetoothRemoteGATTCharacteristic> {
     if (!mb) {
-      throw new Error('Cannot get IO of undefined microbit.');
+      throw new Error('Cannot get IO of undefined Calliope mini.');
     }
     const IOService = await mb.getIOService();
     return await IOService.getCharacteristic(MBSpecs.Characteristics.IO_DATA);

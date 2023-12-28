@@ -241,7 +241,7 @@ namespace MBSpecs {
         if (decodedModelNumber.toLowerCase() === 'BBC micro:bit'.toLowerCase()) {
           return 1;
         }
-        if (decodedModelNumber.toLowerCase().includes('BBC micro:bit v2'.toLowerCase())) {
+        if (decodedModelNumber.toLowerCase().includes('Calliope mini V3'.toLowerCase())) {
           return 2;
         }
       } catch (e) {
