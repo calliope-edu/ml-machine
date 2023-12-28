@@ -4,7 +4,7 @@
   "description": "The version of ml-machine microbit software in C++",
   "license": "MIT",
   "dependencies": {
-    "microbit": "lancaster-university/microbit#v2.1.1"
+    "microbit": "calliope-mini/microbit-dal/tree/v2.1.1-calliope"
   },
   "targetDependencies": {},
   "bin": "./source"
