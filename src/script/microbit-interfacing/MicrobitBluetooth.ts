@@ -132,7 +132,7 @@ export class MicrobitBluetooth {
   public getGattServer(): BluetoothRemoteGATTServer {
     if (!this.isConnected()) {
       throw new Error(
-        'MicrobitConnection: gatt server is not available until after connection is established',
+        'Connection: gatt server is not available until after connection is established',
       );
     }
 
@@ -347,7 +347,9 @@ export class MicrobitBluetooth {
       try {
         navigator.bluetooth
           .requestDevice({
-            filters: [{ namePrefix: `BBC micro:bit [${name}]` }],
+            filters: [{ namePrefix: `BBC micro:bit [${name}]`},
+            { namePrefix: `Calliope mini [${name}]` }
+          ],
             optionalServices: [
               MBSpecs.Services.UART_SERVICE,
               MBSpecs.Services.ACCEL_SERVICE,
@@ -395,8 +397,8 @@ export class MicrobitBluetooth {
     onReconnectFailed: () => void,
   ): Promise<MicrobitBluetooth> {
     if (microbitDevice.gatt === undefined) {
-      console.warn('Missing gatt server on microbit device:', microbitDevice);
-      throw new Error('BluetoothRemoteGATTServer for microbit device is undefined');
+      console.warn('Missing gatt server on device:', microbitDevice);
+      throw new Error('BluetoothRemoteGATTServer for device is undefined');
     }
     let gattServer: BluetoothRemoteGATTServer;
     let microbitVersion: MBSpecs.MBVersion;
