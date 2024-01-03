@@ -2,4 +2,4 @@
 
 python3 build.py
 
-cp $(pwd)/MICROBIT.hex /Volumes/MINI
+cp $(pwd)/FIRMWARE.hex /Volumes/MINI
