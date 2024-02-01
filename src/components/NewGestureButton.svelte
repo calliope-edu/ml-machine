@@ -11,7 +11,7 @@
 </style>
 
 <script lang="ts">
-  import { areActionsAllowed } from '../script/stores/uiStore';
+  import { areActionsAllowed, chosenGesture } from '../script/stores/uiStore';
   import { t } from '../i18n';
   import { gestures } from '../script/stores/Stores';
 
@@ -21,7 +21,11 @@
     if (!areActionsAllowed(false)) {
       return;
     }
-    gestures.createGesture(defaultNewName);
+    let newGesture = gestures.createGesture(defaultNewName);
+    chosenGesture.update(gesture => {
+      gesture = newGesture;
+      return gesture;
+    });
   }
 </script>
 
