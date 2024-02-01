@@ -29,6 +29,10 @@ const fileMoveTargets = {
     "simple": [
         ['./src/__viteBuildVariants__/ml-machine-simple/windi.config.js', './windi.config.js'],
         ['./src/__viteBuildVariants__/ml-machine-simple/features.json', './features.json']
+    ],
+    "calliope": [
+        ['./src/__viteBuildVariants__/calliope/windi.config.js', './windi.config.js'],
+        ['./src/__viteBuildVariants__/calliope/features.json', './features.json']
     ]
 }
 const availableTargets = Object.getOwnPropertyNames(fileMoveTargets);
