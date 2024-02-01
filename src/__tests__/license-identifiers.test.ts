@@ -11,7 +11,7 @@ import fs from 'fs';
 import * as path from 'path';
 
 // Place files you wish to ignore by name in here
-const ignoredFiles: string[] = ['.DS_Store', 'ui.da.json', 'ui.en.json', 'README.md'];
+const ignoredFiles: string[] = ['.DS_Store', 'da.json', 'en.json', 'de.json', 'README.md'];
 const directoriesToScan = ['./src/', './microbit/v2/source/', './microbit/v1/source/'];
 
 const licenseIdentifierStringContributors =
