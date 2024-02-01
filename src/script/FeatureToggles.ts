@@ -7,6 +7,7 @@ import features from '../../features.json';
 
 export enum Feature {
   KNN_MODEL = 'knnModel',
+  BOARDNAME = 'boardname',
   TITLE = 'title',
 }
 
