@@ -10,9 +10,9 @@ import { get } from 'svelte/store';
 import { persistantWritable } from './script/stores/storeUtil';
 import browserLang from 'browser-lang';
 
-register('en', () => import('./messages/ui.en.json'));
-register('da', () => import('./messages/ui.da.json'));
-register('de', () => import('./messages/ui.de.json'));
+register('en', () => import('./messages/en.json'));
+register('da', () => import('./messages/da.json'));
+register('de', () => import('./messages/de.json'));
 
 const initialLocale = browserLang({
   languages: ['en', 'da', 'de'],
