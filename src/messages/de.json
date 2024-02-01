@@ -15,7 +15,7 @@
   "content.index.recordButtonDescription": "\"Aufnahme\"-Taste",
   "content.index.videoHeading": "Intro Video",
   "content.index.setupBody2": "Die Website nutzt die Bluetooth-Funktion, den Beschleunigungsmesser, die LEDs, die Tasten und die Töne des Calliope mini. Anschließend kann der Calliope mini über Bluetooth mit dem Computer verbunden werden, ohne ein USB-Kabel zu verwenden.",
-  "content.index.oldVersion": "",
+  "content.index.oldVersion": "Du findest die alte Version hier:",
   "content.index.contactButton": "Kontakt",
   "content.index.contactBody": "Wenn du Fehler auf dieser Plattform findest, kannst du uns gerne schreiben. Falls du andere Wünsche, Ideen oder allgemeines Interesse hast, kannst du uns ebenfalls gerne kontaktieren. Die Ersteller dieser Plattform können kontaktiert werden unter:",
   "content.index.contactBodyGithub": "Du kannst auch unsere Github-Seite besuchen:",
@@ -66,7 +66,7 @@
   "content.filters.zcr.title": "Rate des Nulldurchgangs",
   "content.filters.zcr.description": "Die Geschwindigkeit, mit der die Eingabe (Beschleunigung) von positiv zu null zu negativ oder von negativ zu null zu positiv wechselt.",
   "content.filters.rms.title": "Mittleres Wurzelquadrat",
-  "content.filters.rms.description": "",
+  "content.filters.rms.description": "Effektivwert.",
   "content.filters.NoDataHeader": "Keine Daten verfügbar",
   "content.filters.NoDataBody": "Rufe die Seite Daten auf, um Datenproben zu sammeln.",
   "content.model.trainModelFirstHeading": "Trainiere zuerst das Modell!",
@@ -208,5 +208,11 @@
   "popup.outdatedmicrobit.text.mkcd": "Öffne die neueste MakeCode-Vorlage, um die aktualisierte Erweiterung zu verwenden.",
   "popup.outdatedmicrobit.button.later": "Später",
   "popup.outdatedmicrobit.button.update": "Jetzt aktualisieren",
-  "popup.outdatedmicrobit.button.update.mkcd": "MakeCode öffnen"
+  "popup.outdatedmicrobit.button.update.mkcd": "MakeCode öffnen",
+  "content.data.noData.templateDataButton": "Beispieldaten laden",
+  "content.data.noData.exampleName.shake": "Shütteln",
+  "content.data.noData.exampleName.still": "Still",
+  "content.data.noData.exampleName.circle": "Kreiseln",
+  "menu.trainer.noFilters": "Kein Filter ausgewählt. Es muss mindestens 1 Filter aktiv sein, um ein Modell zu trainieren.",
+  "popup.connectMB.bluetooth.timeouted": "Kein Verbindungsfenster? Versuche die Seite neu zu laden."
 }
