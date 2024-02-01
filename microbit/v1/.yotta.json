@@ -1,6 +1,6 @@
 {
   "build": {
-    "target": "bbc-microbit-classic-gcc,https://github.com/lancaster-university/yotta-target-bbc-microbit-classic-gcc",
+    "target": "calliope-mini-classic-gcc,https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.4",
     "targetSetExplicitly": true
   }
 }

@@ -347,7 +347,7 @@ export class MicrobitBluetooth {
       try {
         navigator.bluetooth
           .requestDevice({
-            filters: [{ namePrefix: `BBC micro:bit [${name}]` }],
+            filters: [{ namePrefix: `Calliope mini [${name}]` }],
             optionalServices: [
               MBSpecs.Services.UART_SERVICE,
               MBSpecs.Services.ACCEL_SERVICE,

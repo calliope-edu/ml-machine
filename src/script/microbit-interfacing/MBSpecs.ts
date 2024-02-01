@@ -238,10 +238,10 @@ namespace MBSpecs {
         const decodedModelNumber = new TextDecoder().decode(modelNumberValue);
 
         // The model number either reads "BBC micro:bit" or "BBC micro:bit V2.0". Still unsure if those are the only cases.
-        if (decodedModelNumber.toLowerCase() === 'BBC micro:bit'.toLowerCase()) {
+        if (decodedModelNumber.toLowerCase() === 'Calliope mini'.toLowerCase()) {
           return 1;
         }
-        if (decodedModelNumber.toLowerCase().includes('BBC micro:bit v2'.toLowerCase())) {
+        if (decodedModelNumber.toLowerCase().includes('Calliope mini V2'.toLowerCase())) {
           return 2;
         }
       } catch (e) {

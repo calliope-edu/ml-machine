@@ -1,8 +1,8 @@
 {
     "target": {
         "name": "codal-microbit-v2",
-        "url": "https://github.com/lancaster-university/codal-microbit-v2",
-        "branch": "master",
+        "url": "https://github.com/calliope-edu/codal-microbit-v2",
+        "branch": "v0.2.63-calliope-rc1",
         "type": "git"
     } ,
     "config":{
