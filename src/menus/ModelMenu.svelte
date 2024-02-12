@@ -11,7 +11,6 @@
   import Gesture from '../script/domain/stores/gesture/Gesture';
 
   const bestPrediction = gestures.getBestPrediction();
-  let ready = false;
 
   $: confidence =
     $state.isInputReady && $bestPrediction
@@ -24,14 +23,11 @@
     bestPrediction: Gesture | undefined,
   ) => {
     if (!bestPrediction) {
-      ready = false;
       return $t('menu.model.noModel');
     }
     if (!isInputReady) {
-      ready = false
       return $t('menu.model.connectInputMicrobit');
     }
-    ready = true;
     return bestPrediction.getName();
   };
 
@@ -55,10 +51,8 @@
     <div
       class="grid break-words mr-auto ml-auto w-3/4 h-50px border-2 rounded-lg border-solid text-center align-center content-center relative overflow-hidden">
       <p
-        class="w-full max-w-[100%] break-all z-2"
-        class:text-2xl={$state.isInputReady}
-        class:text-md={!$state.isInputReady}>
-        {#if ready}
+        class="w-full max-w-[100%] break-all z-2 text-md">
+        {#if $state.isInputReady}
           {confidenceLabel}
         {/if}
         {predictionLabel}

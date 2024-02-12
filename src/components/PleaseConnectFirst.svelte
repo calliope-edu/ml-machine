@@ -15,7 +15,7 @@
   import { t } from '../i18n';
 </script>
 
-<div>
+<div class="absolute bottom-12 w-full">
   <p class="text-center text-3xl bold m-auto">
     {$t('menu.trainer.notConnected1')}
   </p>
