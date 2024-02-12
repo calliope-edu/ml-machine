@@ -99,7 +99,7 @@
   }
 </script>
 
-<main class="buttonGrid h-18 w-18 select-none ml-0">
+<main class="buttonGrid h-26 w-26 select-none ml-0">
   <!-- Draw all 25 boxes -->
   {#each matrix as button, i}
     <div

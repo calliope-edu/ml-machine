@@ -6,23 +6,23 @@
 
 <script lang="ts">
   import { t } from '../i18n';
-  import ImageSkeleton from '../components/skeletonloading/ImageSkeleton.svelte';
+  // import ImageSkeleton from '../components/skeletonloading/ImageSkeleton.svelte';
   import { classifier } from '../script/stores/Stores';
 
   const model = classifier.getModel();
 </script>
 
-<div class="h-40 w-40 m-auto mt-2 flex flex-col justify-center">
+<div class="w-40 m-auto mt-2 flex flex-col justify-center">
   {#if $model.isTrained}
     <div class="text-white text-center flex flex-col justify-center items-center">
-      <ImageSkeleton
+      <!-- <ImageSkeleton
         alt="Model Icon"
         src="imgs/model_blue.svg"
         height={100}
         width={100}
         loadingColorPrimary="#68BDBF"
-        loadingColorSecondary="#3C81F6" />
-      <p class="text-white mt-3 mb-4">
+        loadingColorSecondary="#3C81F6" /> -->
+      <p class="text-white">
         {$t('menu.trainer.TrainingFinished')}
       </p>
     </div>

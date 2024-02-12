@@ -30,7 +30,7 @@
         titleText={$t('content.model.output.prediction.descriptionTitle')}
         bodyText={$t('content.model.output.prediction.descriptionBody')} />
     </div>
-    <div class="absolute left-78 flex">
+    <div class="absolute left-75 flex">
       <Information
         isLightTheme={false}
         iconText={$t('content.model.output.ledOutput.descriptionTitle')}

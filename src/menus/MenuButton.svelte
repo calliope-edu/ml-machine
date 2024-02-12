@@ -21,19 +21,20 @@
   export let isExpanded: boolean;
 </script>
 
-<div>
+
   <div
     class="border bg-opacity-75 border-solid border-3
            border-opacity-80 min-h-20
 		   text-secondarytext border-secondary
 		   select-none transition duration-300
-		   rounded-full bg-primary"
+		   bg-primary w-full"
     class:bg-secondary={isExpanded}
     class:bg-opacity-90={isExpanded}
     class:cursor-pointer={!isExpanded}
     class:hover:bg-border-opacity-30={!isExpanded}
     class:hover:bg-opacity-95={!isExpanded}
-    class:rounded-3xl={isExpanded}
+    class:rounded-full={!isExpanded}
+    class:min-h-full={isExpanded}
     on:click={onClickFunction}>
     <!-- Title -->
     <div class="h-full mt-6.2 relative">
@@ -50,4 +51,4 @@
     </div>
     <slot />
   </div>
-</div>
+

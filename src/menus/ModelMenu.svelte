@@ -49,16 +49,23 @@
     </div>
   {:else}
     <div
-      class="grid break-words mr-auto ml-auto w-3/4 h-70px border-2 rounded-lg border-solid text-center align-center content-center">
+      class="grid break-words mr-auto ml-auto w-3/4 h-70px border-2 rounded-lg border-solid text-center align-center content-center relative overflow-hidden">
       <p
-        class="w-full max-w-[100%] text-2xl break-all"
+        class="w-full max-w-[100%] text-xl break-all z-2"
         class:text-2xl={$state.isInputReady}
         class:text-md={!$state.isInputReady}>
         {predictionLabel}
       </p>
+      <div class="percentage h-full bg-primary absolute z-1 opacity-60" style="--percentage: {confidenceLabel};"></div>
     </div>
-    <p class="text-4xl ml-5 mt-4 pb-4">
+    <p class="text-xl ml-5 mt-4 pb-4">
       {confidenceLabel}
     </p>
   {/if}
 </div>
+
+<style>
+  .percentage {
+    width: var(--percentage);
+  }
+</style>

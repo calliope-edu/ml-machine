@@ -31,9 +31,9 @@
 </script>
 
 <div
-  class="bg-gradient-to-b from-primary to-secondary relative flex flex-col w-full shadow-2xl">
+  class="bg-primary relative flex items-center justify-between w-full overflow-clip">
   <!-- flush top bar -->
-  <div class="h-12 shadow-md w-full flex justify-center">
+  <div class="h-12 flex justify-center">
     <p class="text-secondarytext font-extrabold self-center text-3xl">
       {getFeature(Feature.TITLE)}
     </p>
@@ -49,33 +49,41 @@
   </div>
 
   <!-- Menu -->
-  <div class="p-5 pl-5 pr-5">
-    <div class="absolute bottom-15 -left-2">
+  <div class="p-0 pl-5 pr-5 h-full">
+    <!-- <div class="absolute bottom-15 -left-2">
       <img alt="decoration arrows" src="/imgs/partial_red_arrows.svg" width="225px" />
-    </div>
+    </div> -->
 
-    <div class="relative">
+    <div class="flex items-center space-x-6 w-full h-full">
+ 
+
+
       {#each get(Menus.getMenuStore()) as menu, id}
-        <MenuButton
-          onClickFunction={() => {
-            navigate(menu.navigationPath);
-          }}
-          title={menu.title}
-          helpTitle={menu.infoBubbleTitle}
-          helpDescription={menu.infoBubbleContent}
-          isExpanded={shouldBeExpanded(menu)}>
-          <svelte:component
-            this={shouldBeExpanded(menu)
-              ? menu.expandedButtonContent
-              : menu.collapsedButtonContent} />
-        </MenuButton>
+        <div class="w-60 max-w-20vw h-full flex items-center">
+          <MenuButton
+            onClickFunction={() => {
+              navigate(menu.navigationPath);
+            }}
+            title={menu.title}
+            helpTitle={menu.infoBubbleTitle}
+            helpDescription={menu.infoBubbleContent}
+            isExpanded={shouldBeExpanded(menu)}>
+            <svelte:component
+              this={shouldBeExpanded(menu)
+                ? menu.expandedButtonContent
+                : menu.collapsedButtonContent} />
+          </MenuButton>
+        
+        </div>
+  
+
         {#if id !== get(Menus.getMenuStore()).length - 1}
           <div class="text-center ml-auto mr-auto mb-1 mt-1">
             <img
               on:load={onLoad}
               class="m-auto"
-              src="/imgs/down_arrow.svg"
-              alt="down arrow icon"
+              src="/imgs/right_arrow.svg"
+              alt="right arrow icon"
               width="30px" />
           </div>
         {/if}

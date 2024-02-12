@@ -66,27 +66,27 @@
     {/if}
     <!-- Here we use the hidden class, to allow for it to load in. -->
     <!-- <main class="h-screen w-screen m-0 relative flex" class:hidden={$state.isLoading}> -->
-    <main class="h-screen w-screen m-0 relative flex">
+    <main class="h-screen w-screen m-0 relative">
       <!-- OVERLAY ITEMS -->
       <CookieBanner />
       <OverlayView />
       <BluetoothIncompatibilityWarningDialog />
 
       <!-- SIDE BAR -->
-      <div class="h-full flex min-w-75 max-w-75">
+      <div class="h-200px flex w-full z-2">
         <SideBarMenuView />
       </div>
 
       <div
         class="h-full w-full overflow-y-hidden overflow-x-auto
-    flex flex-col bg-backgrounddark shadow-2xl">
+    flex flex-col bg-backgrounddark">
         <!-- CONTENT -->
-        <div class="relative z-1 flex-1 overflow-y-auto flex-row">
+        <div class="relative z-1 flex-1 overflow-y-auto flex-row mb-360px">
           <PageContentView />
         </div>
 
         <!-- BOTTOM BAR -->
-        <div class="h-160px w-full">
+        <div class="h-160px w-full absolute bottom-0 z-2 shadow-2xl">
           <BottomBarMenuView />
         </div>
       </div>

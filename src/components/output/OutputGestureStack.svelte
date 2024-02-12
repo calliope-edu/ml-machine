@@ -20,7 +20,7 @@
   import { t } from '../../i18n';
   import OutputSoundSelector from './OutputSoundSelector.svelte';
   import Microbits from '../../script/microbit-interfacing/Microbits';
-  import ImageSkeleton from '../skeletonloading/ImageSkeleton.svelte';
+  // import ImageSkeleton from '../skeletonloading/ImageSkeleton.svelte';
   import GestureTilePart from '../GestureTilePart.svelte';
   import PinSelector from './PinSelector.svelte';
   import { state } from '../../script/stores/uiStore';
@@ -261,18 +261,18 @@
   <!-- OUTPUT SETTINGS -->
   <div class="relative flex items-center">
     <div
-      class="w-177px relative rounded-xl bg-transparent h-full border-1 border-primaryborder">
-      <ImageSkeleton
-        src="imgs/blank_microbit.svg"
+      class="w-144px h-144px flex items-center justify-center relative rounded-xl bg-white h-full border-1 border-primaryborder">
+      <!-- <ImageSkeleton
+        src=""
         alt="microbit guide"
         width={177}
         height={144}
-        loadingColorSecondary="#818181"
-        loadingColorPrimary="#4A4A4A"
-        onLoaded={() => (hasLoadedMicrobitImage = true)} />
+        loadingColorSecondary="#FFF"
+        loadingColorPrimary="#FFF"
+        onLoaded={() => (hasLoadedMicrobitImage = true)} /> -->
       <div
-        class="bg-black p-0 m-0 absolute top-9 left-12.7"
-        class:hidden={!hasLoadedMicrobitImage}
+        class="p-0 m-0 top-9 left-12.7"
+    
         on:click={onUserInteraction}>
         <OutputMatrix bind:trigger={triggerFunctions[0]} gesture={$gesture} />
       </div>
