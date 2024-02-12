@@ -34,7 +34,7 @@
 <div
   class="bg-primary relative flex items-center justify-between w-full overflow-clip">
   <!-- flush top bar -->
-  <div class="justify-center flex flex-row">
+  <div class="justify-center flex flex-row ml-4">
 
       <div class="flex flex-col cursor-pointer" on:click={() => navigate(Paths.HOME)}>
         <img src="/imgs/calliopemini_logo.svg" alt="Calliope mini Logo" />
