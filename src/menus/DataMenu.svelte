@@ -16,7 +16,6 @@
   );
 </script>
 
-<div class="w-full text-center justify-center pt-5 pb-7">
-  <p class="text-5xl mb-2">{numberOfRecodings}</p>
-  <p class="text-xl">{$t('menu.data.examples')}</p>
+<div class="w-full text-center text-xl justify-center pt-5 pb-7">
+  <p>{numberOfRecodings} {$t('menu.data.examples')}</p>
 </div>

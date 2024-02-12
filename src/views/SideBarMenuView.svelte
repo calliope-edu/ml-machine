@@ -13,6 +13,7 @@
   import { Paths, currentPath, navigate } from '../router/paths';
   import { state } from '../script/stores/uiStore';
     import { Feature, getFeature } from '../script/FeatureToggles';
+    import { t } from '../i18n';
 
   $: shouldBeExpanded = (menuProps: MenuProperties) => {
     let path = $currentPath;
@@ -33,19 +34,28 @@
 <div
   class="bg-primary relative flex items-center justify-between w-full overflow-clip">
   <!-- flush top bar -->
-  <div class="h-12 flex justify-center">
-    <p class="text-secondarytext font-extrabold self-center text-3xl">
-      {getFeature(Feature.TITLE)}
-    </p>
-    <div class="text-white self-center ml-4 focus:outline-none">
-      <button
-        class="rounded hover:bg-white
-						   hover:bg-opacity-10 duration-100
-						   select-none outline-none"
-        on:click={() => navigate(Paths.HOME)}>
-        <i class="fas fa-home text-2xl outline-none" />
-      </button>
+  <div class="justify-center flex flex-row">
+
+      <div class="flex flex-col cursor-pointer" on:click={() => navigate(Paths.HOME)}>
+        <img src="/imgs/calliopemini_logo.svg" alt="Calliope mini Logo" />
+        <div class="flex">
+        <p class="text-secondarytext font-extrabold self-center text-2xl">
+          { $t('machine-learning') }
+        </p>
+        <div class="text-white self-center ml-4 focus:outline-none ml-5">
+          <button
+            class="rounded hover:bg-white
+                   hover:bg-opacity-10 duration-100
+                   select-none outline-none"
+            >
+            <i class="fas fa-home text-2xl outline-none" />
+          </button>
+        </div>
+      </div>
     </div>
+
+
+    
   </div>
 
   <!-- Menu -->
@@ -55,8 +65,6 @@
     </div> -->
 
     <div class="flex items-center space-x-6 w-full h-full">
- 
-
 
       {#each get(Menus.getMenuStore()) as menu, id}
         <div class="w-60 max-w-20vw h-full flex items-center">

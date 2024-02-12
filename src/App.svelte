@@ -73,7 +73,7 @@
       <BluetoothIncompatibilityWarningDialog />
 
       <!-- SIDE BAR -->
-      <div class="h-200px flex w-full z-2">
+      <div class="h-130px flex w-full z-2">
         <SideBarMenuView />
       </div>
 
@@ -81,7 +81,7 @@
         class="h-full w-full overflow-y-hidden overflow-x-auto
     flex flex-col bg-backgrounddark">
         <!-- CONTENT -->
-        <div class="relative z-1 flex-1 overflow-y-auto flex-row mb-360px">
+        <div class="relative z-1 flex-1 overflow-y-auto flex-row mb-290px">
           <PageContentView />
         </div>
 

@@ -28,7 +28,7 @@
     </div>
   {:else}
     <div
-      class="h-34 w-34 m-auto mb-8 border-2 border-white border-opacity-30 rounded-lg border-dashed font-bold text-warm-gray-300">
+      class="w-34 m-auto mb-8 border-2 border-white border-opacity-30 rounded-lg border-dashed font-bold text-warm-gray-300">
       <div class="flex h-full">
         <div class="m-auto">
           {$t('menu.model.noModel')}

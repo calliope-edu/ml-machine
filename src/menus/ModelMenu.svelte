@@ -11,6 +11,7 @@
   import Gesture from '../script/domain/stores/gesture/Gesture';
 
   const bestPrediction = gestures.getBestPrediction();
+  let ready = false;
 
   $: confidence =
     $state.isInputReady && $bestPrediction
@@ -23,11 +24,14 @@
     bestPrediction: Gesture | undefined,
   ) => {
     if (!bestPrediction) {
+      ready = false;
       return $t('menu.model.noModel');
     }
     if (!isInputReady) {
+      ready = false
       return $t('menu.model.connectInputMicrobit');
     }
+    ready = true;
     return bestPrediction.getName();
   };
 
@@ -37,10 +41,10 @@
   $: predictionLabel = getPredictionLabel($state.isInputReady, $bestPrediction);
 </script>
 
-<div class="w-full text-center justify-center pt-5">
+<div class="w-full text-center justify-center pt-2">
   {#if !$model.hasModel}
     <div
-      class="h-34 w-34 m-auto mb-8 border-2 border-white border-opacity-30 rounded-lg border-dashed font-bold text-warm-gray-300">
+      class="w-34 m-auto mb-8 border-2 border-white border-opacity-30 rounded-lg border-dashed font-bold text-warm-gray-300">
       <div class="flex h-full">
         <div class="m-auto">
           {$t('menu.model.noModel')}
@@ -49,18 +53,18 @@
     </div>
   {:else}
     <div
-      class="grid break-words mr-auto ml-auto w-3/4 h-70px border-2 rounded-lg border-solid text-center align-center content-center relative overflow-hidden">
+      class="grid break-words mr-auto ml-auto w-3/4 h-50px border-2 rounded-lg border-solid text-center align-center content-center relative overflow-hidden">
       <p
-        class="w-full max-w-[100%] text-xl break-all z-2"
+        class="w-full max-w-[100%] break-all z-2"
         class:text-2xl={$state.isInputReady}
         class:text-md={!$state.isInputReady}>
+        {#if ready}
+          {confidenceLabel}
+        {/if}
         {predictionLabel}
       </p>
       <div class="percentage h-full bg-primary absolute z-1 opacity-60" style="--percentage: {confidenceLabel};"></div>
     </div>
-    <p class="text-xl ml-5 mt-4 pb-4">
-      {confidenceLabel}
-    </p>
   {/if}
 </div>
 

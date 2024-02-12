@@ -69,7 +69,7 @@
   "content.filters.rms.description": "Effektivwert.",
   "content.filters.NoDataHeader": "Keine Daten verfügbar",
   "content.filters.NoDataBody": "Rufe die Seite Daten auf, um Datenproben zu sammeln.",
-  "content.model.trainModelFirstHeading": "Trainiere zuerst das Modell!",
+  "content.model.trainModelFirstHeading": "Trainiere zuerst das Modell",
   "content.model.trainModelFirstBody": "Gehe auf die 'Training' Seite",
   "content.model.classification.helpHeading": "Wahrscheinlichkeitsmesser",
   "content.model.classification.helpBody": "Für jede Vorhersage, die du triffst, gibt das Modell einen Prozentsatz an, der beschreibt, wie sicher das Modell in seiner Vorhersage ist. Diese Anzeige reicht von 0% bis 100%. Mit dem Schieberegler daneben kannst du festlegen, wie sicher das Modell in seiner Vorhersage sein soll, um eine Ausgabe zu machen (z. B. einen Ton abzuspielen)",
@@ -102,7 +102,7 @@
   "footer.reconnecting": "Verbindung wird wiederhergestellt. Bitte warten",
   "menu.data.helpHeading": "Daten",
   "menu.data.helpBody": "Um ein Modell darauf zu trainieren verschiedene Bewegungen zu erkennen, brauchen wir saubere Beispiele für die Geste, die wir dann dem Training zeigen können. Hier kannst du Klassen (Arten von Gesten) erstellen und Beispiele für jede Klasse aufzeichnen. Es müssen mindestens 2 Klassen mit jeweils 3 Beispielen vorhanden sein, bevor das Training ein eigenes Modell trainieren kann.",
-  "menu.data.examples": "Beispiele",
+  "menu.data.examples": "Datensätze",
   "menu.trainer.helpHeading": "Training",
   "menu.trainer.helpBody": "Das Training sieht sich die Beispiele in jeder der Klassen an und versucht zu \"lernen\", wie die verschiedenen Klassen erkannt werden können, indem es nach Mustern in den Daten sucht. Hier kannst du ein Modell zur Erkennung verschiedener Gesten trainieren.",
   "menu.trainer.notConnected1": "Du hast keinen Calliope mini angeschlossen.",
@@ -119,7 +119,7 @@
   "menu.model.noModel": "Kein Modell",
   "menu.model.connectOutputButton": "Ausgabe-Calliope mini verbinden",
   "menu.model.disconnect": "Eingabe-Calliope mini verbinden",
-  "menu.model.connectInputMicrobit": "Calliope mini verbinden",
+  "menu.model.connectInputMicrobit": "kein Calliope mini",
   "popup.connectMB.main.bluetooth.subtitle": "Verbindung über Bluetooth",
   "popup.connectMB.bluetooth.heading": "Verbindung über Bluetooth",
   "popup.connectMB.bluetooth.cancelledConnection": "Die Verbindung wurde abgebrochen. Zur Fortsetzung des Vorgangs bitte erneut versuchen.",
@@ -213,5 +213,6 @@
   "content.data.noData.exampleName.still": "Still",
   "content.data.noData.exampleName.circle": "Kreiseln",
   "menu.trainer.noFilters": "Kein Filter ausgewählt. Es muss mindestens 1 Filter aktiv sein, um ein Modell zu trainieren.",
-  "popup.connectMB.bluetooth.timeouted": "Kein Verbindungsfenster? Versuche die Seite neu zu laden."
+  "popup.connectMB.bluetooth.timeouted": "Kein Verbindungsfenster? Versuche die Seite neu zu laden.",
+  "machine-learning": "Machine Learning"
 }

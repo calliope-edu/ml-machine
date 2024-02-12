@@ -31,7 +31,7 @@
   </ControlBar>
 </div>
 
-<div class="pt-4 pl-3">
+<div class="pt-4 pl-3 h-full">
   {#if $state.modelView == ModelView.TILE}
     <ModelPageTileView />
   {:else}

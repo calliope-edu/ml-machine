@@ -79,10 +79,10 @@
         {/if}
       </div>
     {/if}
-    {#if !$state.isInputConnected}
-      <div class="mt-10">
+    <!-- {#if !$state.isInputConnected}
+      <div class="mt-10 abssolute b-0">
         <PleaseConnectFirst />
       </div>
-    {/if}
+    {/if} -->
   </div>
 </div>
