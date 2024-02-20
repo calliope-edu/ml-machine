@@ -37,7 +37,7 @@
     });
   };
 
-  const largePins: MBSpecs.IOPin[] = [0, 1, 2, '3V', 'GND'];
+  const largePins: MBSpecs.IOPin[] = [0, 1, 2, 3];
 
   // Hacky way to check if a value is included in an array since typescript
   // has made a very poor decision on how array.includes() is typed
@@ -47,76 +47,60 @@
 </script>
 
 <GestureTilePart>
-  <div class="flex flex-row">
-    {#each MBSpecs.IO_PIN_LAYOUT as currentPin}
+  <div class="m-3">
+  <div class="flex flex-row w-full items-center width-full">
+    {#each largePins as currentPin}
       {#if includes(StaticConfiguration.supportedPins, currentPin)}
         <!-- These are pins we support, make them selectable and yellow -->
-        {#if largePins.includes(currentPin)}
           <!-- Large pins -->
           <div
             on:click={() => {
               onPinSelected(currentPin);
             }}
-            class="h-8 w-7 rounded-bl-xl ml-1px rounded-br-xl bg-yellow-300 cursor-pointer"
+            class="ml-1px bg-yellow-300 cursor-pointer flex items-center justify-center w-8 h-8 rounded-full"
             class:border-yellow-500={selectedPin === currentPin}
             class:border-width-2={selectedPin === currentPin}
-            class:h-9={selectedPin === currentPin}
             class:hover:bg-yellow-200={selectedPin !== currentPin}
             class:bg-opacity-80={selectedPin !== currentPin}>
-            <p class="text-center text-xs select-none">{currentPin}</p>
+            <p class="text-black text-l font-bold select-none">{currentPin}</p>
           </div>
-        {:else}
-          <!-- Small pins -->
-          <div
-            on:click={() => {
-              onPinSelected(currentPin);
-            }}
-            class:bg-yellow-600={selectedPin === currentPin}
-            class="bg-yellow-400 h-7 w-1 rounded-bl-xl ml-1px rounded-br-xl hover:bg-yellow-300" />
-        {/if}
       {:else}
         <!-- This are pins we DO NOT support, make them non-selectable and gray -->
-        {#if largePins.includes(currentPin)}
           <!-- Large pins -->
-          <div class="bg-amber-200 opacity-40 h-8 w-7 rounded-bl-xl ml-1px rounded-br-xl">
-            <p class="text-center text-xs select-none">{currentPin}</p>
+          <div class="ml-1px bg-yellow-300 cursor-pointer flex items-center justify-center w-8 h-8 rounded-full opacity-40">
+            <p class="text-black text-l font-bold select-none">{currentPin}</p>
           </div>
-        {:else}
-          <!-- Small pins -->
-          <div
-            class="bg-amber-200 opacity-40 h-7 w-1 rounded-bl-xl ml-1px rounded-br-xl" />
-        {/if}
       {/if}
     {/each}
   </div>
 
   <div
-    id="test"
     class:hidden={selectedPin === undefined}
-    class="flex flex-col justify-center items-center">
-    <div class="flex flex-row w-full mt-2 justify-around">
-      <div class="flex flex-col">
-        <input
-          type="radio"
-          bind:group={selectedTurnOnState}
-          on:change={onTurnOnStateSelect}
-          on:click|stopPropagation
-          value={PinTurnOnState.ALL_TIME} />
-        <p>{$t('content.model.output.pin.option.allTime')}</p>
-      </div>
-      <div class="flex flex-col">
-        <input
-          type="radio"
-          bind:group={selectedTurnOnState}
-          on:change={onTurnOnStateSelect}
-          on:click|stopPropagation
-          value={PinTurnOnState.X_TIME} />
-        <p>{$t('content.model.output.pin.option.xTime')}</p>
-      </div>
+    class="flex flex-col justify-center">
+    <div class="my-2">
+      <label>
+        <input type="radio" id="allTimeRadio" bind:group={selectedTurnOnState} value={PinTurnOnState.ALL_TIME} class="radio-input hidden" on:change={onTurnOnStateSelect}>
+        <div class="flex items-center cursor-pointer mr-4 radio-label">
+          <div class="w-4 h-4 border border-gray-400 rounded-full flex items-center justify-center mr-2">
+            <div class="w-3 h-3 bg-blue-500 rounded-full checked-indicator hidden"></div>
+          </div>
+          {$t('content.model.output.pin.option.allTime')}
+          </div>
+      </label>
+    
+      <label>
+        <input type="radio" id="xTimeRadio" bind:group={selectedTurnOnState} value={PinTurnOnState.X_TIME} class="radio-input hidden" on:change={onTurnOnStateSelect}>
+        <div class="flex items-center cursor-pointer mr-4 radio-label">
+          <div class="w-4 h-4 border border-gray-400 rounded-full flex items-center justify-center mr-2">
+            <div class="w-3 h-3 bg-blue-500 rounded-full checked-indicator hidden"></div>
+          </div>
+          {$t('content.model.output.pin.option.xTime')}
+        </div>
+      </label>
     </div>
-    <div class="w-40 mt-4">
+    <div class="">
       {#if turnOnState === PinTurnOnState.X_TIME}
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row">
           <p class="mr-2">{$t('content.model.output.pin.seconds')}</p>
           <input
             type="number"
@@ -127,4 +111,14 @@
       {/if}
     </div>
   </div>
+
+</div>
 </GestureTilePart>
+
+
+<style>
+  /* Style for checked radio button */
+  .radio-input:checked + .radio-label .checked-indicator {
+    display: block;
+  }
+</style>

@@ -38,7 +38,7 @@
       {$t('content.trainer.controlbar.filters')}
     </StandardButton>
   </ControlBar>
-  <div class="flex flex-col flex-grow justify-center items-center text-center">
+  <div class="flex flex-col flex-grow justify-center items-center text-center h-full">
     {#if !sufficientData}
       <div class="w-full text-primarytext">
         <h1 class="w-3/4 text-3xl bold m-auto">
@@ -79,10 +79,10 @@
         {/if}
       </div>
     {/if}
-    {#if !$state.isInputConnected}
-      <div class="mt-10">
+    <!-- {#if !$state.isInputConnected}
+      <div class="mt-10 abssolute b-0">
         <PleaseConnectFirst />
       </div>
-    {/if}
+    {/if} -->
   </div>
 </div>

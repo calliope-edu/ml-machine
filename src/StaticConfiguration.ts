@@ -24,7 +24,7 @@ class StaticConfiguration {
   public static readonly recordingDuration = 1800;
 
   // Which pins are supported?
-  public static supportedPins: MBSpecs.UsableIOPin[] = [0, 1, 2];
+  public static supportedPins: MBSpecs.UsableIOPin[] = [0, 1, 2, 3];
   public static readonly defaultOutputPin: MBSpecs.UsableIOPin = 0; // Which pin should be selected by default?
   // In milliseconds, after turning on, how long should an output be on for?
   public static readonly defaultPinToggleTime = 1500;

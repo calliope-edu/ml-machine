@@ -23,5 +23,8 @@
     "a11y-click-events-have-key-events": "ignore",
     "a11y-missing-content": "ignore"
   },
-  "i18n-ally.keystyle": "flat"
+  "i18n-ally.keystyle": "flat",
+  "i18n-ally.localesPaths": [
+    "src/messages"
+  ]
 }

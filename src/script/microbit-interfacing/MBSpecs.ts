@@ -185,7 +185,7 @@ namespace MBSpecs {
     | 'GND'
     | 24;
 
-  export type UsableIOPin = 0 | 1 | 2;
+  export type UsableIOPin = 0 | 1 | 2 | 3;
 
   /**
    * Utilities for working with the micro:bit's Bluetooth Profile.
