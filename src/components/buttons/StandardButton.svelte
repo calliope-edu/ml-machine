@@ -19,6 +19,8 @@
   }
   .filled {
     background-color: var(--color);
+    border-width: var(--border-width);
+    border-color: transparent;
     opacity: 1;
     color: white;
   }
@@ -31,8 +33,8 @@
 </style>
 
 <script lang="ts">
-  import TypingUtils from '../script/TypingUtils';
-  import windi from './../../windi.config.js';
+  import TypingUtils from './../../script/TypingUtils';
+  import windi from './../../../windi.config.js';
 
   type variants = 'secondary' | 'primary' | 'warning' | 'info' | 'infolight' | 'disabled';
 
