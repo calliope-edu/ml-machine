@@ -52,6 +52,15 @@
   }
 
   document.title = getFeature(Feature.TITLE);
+
+    // Parse URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const isTesting = urlParams.has('isTesting'); // or use your specific parameter
+
+  // Set the local storage item if the parameter exists
+  if (isTesting) {
+    localStorage.setItem('isTesting', 'true');
+  }
 </script>
 
 <Router>
