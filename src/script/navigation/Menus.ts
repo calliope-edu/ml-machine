@@ -34,15 +34,14 @@ class Menus {
       expandedButtonContent: GestureMenu,
       navigationPath: Paths.DATA,
     },
-    {
-      title: 'menu.trainer.helpHeading',
-      infoBubbleTitle: 'menu.trainer.helpHeading',
-      infoBubbleContent: 'menu.trainer.helpBody',
-      collapsedButtonContent: undefined,
-      expandedButtonContent: NewTrainerMenu,
-      navigationPath: Paths.TRAINING,
-      additionalExpandPaths: [Paths.FILTERS],
-    },
+    // {
+    //   title: 'menu.trainer.helpHeading',
+    //   infoBubbleTitle: 'menu.trainer.helpHeading',
+    //   infoBubbleContent: 'menu.trainer.helpBody',
+    //   collapsedButtonContent: undefined,
+    //   expandedButtonContent: NewTrainerMenu,
+    //   navigationPath: Paths.TRAINING,
+    // },
     {
       title: 'menu.model.helpHeading',
       infoBubbleTitle: 'menu.model.helpHeading',
@@ -50,6 +49,7 @@ class Menus {
       collapsedButtonContent: undefined,
       expandedButtonContent: NewModelMenu,
       navigationPath: Paths.MODEL,
+      additionalExpandPaths: [Paths.FILTERS],
     },
   ]);
 

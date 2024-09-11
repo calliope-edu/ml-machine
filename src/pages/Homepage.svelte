@@ -27,12 +27,14 @@
   import { state } from '../script/stores/uiStore';
   import Environment from '../script/Environment';
   import DevTools from '../components/DevTools.svelte';
+  import { Paths, navigate } from '../router/paths';
+  import StandardButton from '../components/StandardButton.svelte';
 
   type ContentTile = { tile: ComponentType; spanColumns: number };
   // Just add the content titles you wish to put on front page, in the order you wish them to be there
   const contentTiles: ContentTile[] = [
-    { tile: DoItYourselfMachineLearningTile, spanColumns: 1 },
-    { tile: NewFeaturesTile, spanColumns: 1 },
+    // { tile: DoItYourselfMachineLearningTile, spanColumns: 1 },
+    // { tile: NewFeaturesTile, spanColumns: 1 },
     { tile: WhatIsMachineLearningTile, spanColumns: 2 },
   ];
 </script>
@@ -49,13 +51,50 @@
             </div>
           {/if}
           <div class="float-right flex flex-row">
-            <ContactUsControlBarButton />
+            <!-- <ContactUsControlBarButton /> -->
             <SelectLanguageControlBarDropdown />
           </div>
         </div>
       </ControlBar>
     </div>
     <div class="p-10 pb-2 pt-2 mt-3">
+
+      <div class="border-gray-200 border border-solid bg-white rounded-lg p-6 shadow-xl mb-6">
+
+      <div>
+
+      <h1 class="text-center text-xl p-6 font-semibold">CALLIOPE MINI - EINSTIEG IN MASCHINELLES LERNEN</h1>
+
+      <div class="h-full w-full flex gap-12 mt-10 justify-center bg-white">
+
+      <div class="text-center">
+        <h2 class="text-lg font-semibold">1. Daten aufnehmen</h2>
+        <img src="/imgs/1_Calliope_mini.svg" />
+        <p>Nimm Deispiele von Aktionen auf, die dein Modell erkennen soll (z. B. Schütteln und Klatschen).</p>
+      </div>
+
+      <div class="text-center">
+        <h2 class="text-lg font-semibold">2. Modell trainieren</h2>
+        <img src="/imgs/2_Rechner.svg" />
+        <p>Nutze deine Trainingsbeispiele, um das Lernmodell auf die Erkennung der Aktionen zu trainieren.</p>
+      </div>
+
+      <div class="text-center">
+        <h2 class="text-lg font-semibold">3. Modell prüfen</h2>
+        <img src="/imgs/3_Modell.svg" />
+        <p>Teste, ob die einzelnen Aktionen korrekt erkannt werden. Mit mehr Daten kannst du das Modell verbessern.</p>
+      </div>
+
+      </div>
+
+      </div>
+      
+        <StandardButton onClick={() => {
+          navigate(Paths.DATA);
+        }}
+          >LOSLEGEN</StandardButton>
+      </div>
+
       <div class="grid-container grid-cols-2 min-w-800px">
         {#each contentTiles as { tile, spanColumns }}
           <FrontPageContentTile contentComponent={tile} fillColumns={spanColumns} />

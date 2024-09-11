@@ -33,7 +33,7 @@
     shadows={false}
     color={'primary'}
     onClick={() => {
-      navigate(Paths.TRAINING);
+      navigate(Paths.MODEL);
     }}>
     <i class="fas fa-solid fa-arrow-left" />
   </StandardButton>
