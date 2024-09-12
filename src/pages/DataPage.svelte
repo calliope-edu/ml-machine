@@ -23,6 +23,9 @@
   import { get } from 'svelte/store';
   import exampleDataset from '../exampleDataset.json';
   import { GestureData } from '../script/domain/stores/gesture/Gesture';
+  import TrainingComponent from './training/TrainingComponent.svelte';
+  import ControlBar from '../components/control-bar/ControlBar.svelte';
+  import { Paths, navigate } from '../router/paths';
 
   let isConnectionDialogOpen = false;
 
@@ -79,12 +82,29 @@
 <!-- Main pane -->
 <main class="h-full inline-block min-w-full flex flex-col">
   <div>
-    <DataPageControlBar
-      clearDisabled={$gestures.length === 0}
-      downloadDisabled={$gestures.length === 0}
-      {onClearGestures}
-      {onDownloadGestures}
-      {onUploadGestures} />
+    <ControlBar>
+      <DataPageControlBar
+        clearDisabled={$gestures.length === 0}
+        downloadDisabled={$gestures.length === 0}
+        {onClearGestures}
+        {onDownloadGestures}
+        {onUploadGestures} />
+        <div class="flex gap-1 ml-auto">
+          <StandardButton
+        fillOnHover
+        small
+        outlined
+        bold={false}
+        shadows={false}
+        color={'primary'}
+        onClick={() => {
+          navigate(Paths.FILTERS);
+        }}>
+        {$t('content.trainer.controlbar.filters')}
+      </StandardButton>
+          <TrainingComponent />
+        </div>
+    </ControlBar>
   </div>
   {#if !hasSomeData()}
     <div class="flex mt-6 mb-3 justify-center">

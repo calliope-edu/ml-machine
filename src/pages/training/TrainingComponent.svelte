@@ -23,18 +23,6 @@
   </script>
   
   <!-- <TrainingFailedDialog /> -->
-      <StandardButton
-        fillOnHover
-        small
-        outlined
-        bold={false}
-        shadows={false}
-        color={'primary'}
-        onClick={() => {
-          navigate(Paths.FILTERS);
-        }}>
-        {$t('content.trainer.controlbar.filters')}
-      </StandardButton>
 
 
       {#if !sufficientData}

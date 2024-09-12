@@ -11,6 +11,7 @@
     import { classifier } from '../../script/stores/Stores';
     import LayersModelTrainer from '../../script/mlmodels/LayersModelTrainer';
     import StaticConfiguration from '../../StaticConfiguration';
+    import { Paths, navigate } from '../../router/paths';
   
     const model = classifier.getModel();
   
@@ -19,6 +20,7 @@
       : 'menu.trainer.trainNewModelButton';
   
     const onClick = () => {
+      navigate(Paths.MODEL);
       model.train(new LayersModelTrainer(StaticConfiguration.layersModelTrainingSettings));
     };
   </script>

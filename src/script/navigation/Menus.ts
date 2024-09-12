@@ -33,6 +33,7 @@ class Menus {
       collapsedButtonContent: undefined,
       expandedButtonContent: GestureMenu,
       navigationPath: Paths.DATA,
+      additionalExpandPaths: [Paths.FILTERS],
     },
     // {
     //   title: 'menu.trainer.helpHeading',
@@ -49,7 +50,6 @@ class Menus {
       collapsedButtonContent: undefined,
       expandedButtonContent: NewModelMenu,
       navigationPath: Paths.MODEL,
-      additionalExpandPaths: [Paths.FILTERS],
     },
   ]);
 
