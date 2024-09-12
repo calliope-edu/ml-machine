@@ -57,31 +57,31 @@
         </div>
       </ControlBar>
     </div>
-    <div class="p-10 pb-2 pt-2 mt-3">
+    
 
-      <div class="border-gray-200 border border-solid bg-white rounded-lg p-6 shadow-xl mb-6">
+      <div class="border-gray-200 border border-solid bg-white p-18 shadow-xl mb-6">
 
       <div>
 
-      <h1 class="text-center text-xl p-6 font-semibold">CALLIOPE MINI - EINSTIEG IN MASCHINELLES LERNEN</h1>
+      <h1 class="text-center text-xl p-6 font-semibold" style="font-size: 3rem; line-height: 1.2em">CALLIOPE MINI - EINSTIEG IN MASCHINELLES LERNEN</h1>
 
-      <div class="h-full w-full flex gap-12 mt-10 justify-center bg-white">
+      <div class="h-full w-full grid grid-cols-3 gap-12 mt-10 mb-18 justify-center bg-white">
 
-      <div class="text-center">
+      <div class="text-center m-auto" style="max-width: 40ch;">
         <h2 class="text-lg font-semibold">1. Daten aufnehmen</h2>
-        <img src="/imgs/1_Calliope_mini.svg" />
+        <img class="w-75 m-auto" src="/imgs/1_Calliope_mini.svg" />
         <p>Nimm Deispiele von Aktionen auf, die dein Modell erkennen soll (z. B. Schütteln und Klatschen).</p>
       </div>
 
-      <div class="text-center">
+      <div class="text-center m-auto" style="max-width: 40ch;">
         <h2 class="text-lg font-semibold">2. Modell trainieren</h2>
-        <img src="/imgs/2_Rechner.svg" />
+        <img class="w-75 m-auto" src="/imgs/2_Rechner.svg" />
         <p>Nutze deine Trainingsbeispiele, um das Lernmodell auf die Erkennung der Aktionen zu trainieren.</p>
       </div>
 
-      <div class="text-center">
+      <div class="text-center m-auto" style="max-width: 40ch;">
         <h2 class="text-lg font-semibold">3. Modell prüfen</h2>
-        <img src="/imgs/3_Modell.svg" />
+        <img class="w-75 m-auto" src="/imgs/3_Modell.svg" />
         <p>Teste, ob die einzelnen Aktionen korrekt erkannt werden. Mit mehr Daten kannst du das Modell verbessern.</p>
       </div>
 
@@ -89,11 +89,13 @@
 
       </div>
       
-        <StandardButton onClick={() => {
+        <StandardButton color="blue" onClick={() => {
           navigate(Paths.DATA);
         }}
           >LOSLEGEN</StandardButton>
       </div>
+
+      <div class="p-10 pb-2 pt-2 mt-3">
 
       <div class="grid-container grid-cols-2 min-w-800px">
         {#each contentTiles as { tile, spanColumns }}

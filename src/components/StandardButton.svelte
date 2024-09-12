@@ -34,7 +34,7 @@
   import TypingUtils from '../script/TypingUtils';
   import windi from './../../windi.config.js';
 
-  type variants = 'secondary' | 'primary' | 'warning' | 'info' | 'infolight' | 'disabled';
+  type variants = 'blue' | 'secondary' | 'primary' | 'warning' | 'info' | 'infolight' | 'disabled';
 
   export let color: variants = 'secondary';
   export let onClick: (e: Event) => void = TypingUtils.emptyFunction;
@@ -52,6 +52,7 @@
     info: windi.theme.extend.colors.info,
     infolight: windi.theme.extend.colors.infolight,
     disabled: windi.theme.extend.colors.disabled,
+    blue: '#6776f4'
   };
 </script>
 
