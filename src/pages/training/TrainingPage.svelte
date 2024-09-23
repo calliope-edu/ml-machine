@@ -23,8 +23,8 @@
 </script>
 
 <TrainingFailedDialog />
-<div class="flex flex-col h-full">
-  <ControlBar>
+<!-- <div class="flex flex-col h-full"> -->
+  <!-- <ControlBar>
     <StandardButton
       fillOnHover
       small
@@ -37,7 +37,7 @@
       }}>
       {$t('content.trainer.controlbar.filters')}
     </StandardButton>
-  </ControlBar>
+  </ControlBar> -->
   <div class="flex flex-col flex-grow justify-center items-center text-center h-full">
     {#if !sufficientData}
       <div class="w-full text-primarytext">
@@ -85,4 +85,4 @@
       </div>
     {/if} -->
   </div>
-</div>
+<!-- </div> -->

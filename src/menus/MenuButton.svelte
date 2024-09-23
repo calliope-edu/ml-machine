@@ -23,8 +23,7 @@
 
 
   <div
-    class="border bg-opacity-75 border-solid border-3
-           border-opacity-80 min-h-20
+    class=" bg-opacity-75 min-h-20
 		   text-secondarytext border-secondary
 		   select-none transition duration-300
 		   bg-primary w-full"

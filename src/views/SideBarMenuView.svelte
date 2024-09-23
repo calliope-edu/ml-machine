@@ -36,25 +36,9 @@
   <!-- flush top bar -->
   <div class="justify-center flex flex-row ml-4">
 
-      <div class="flex flex-col cursor-pointer" on:click={() => navigate(Paths.HOME)}>
-        <img src="/imgs/calliopemini_logo.svg" alt="Calliope mini Logo" />
-        <div class="flex">
-        <p class="text-secondarytext font-extrabold self-center text-2xl">
-          { $t('machine-learning') }
-        </p>
-        <div class="text-white self-center ml-4 focus:outline-none ml-5">
-          <button
-            class="rounded hover:bg-white
-                   hover:bg-opacity-10 duration-100
-                   select-none outline-none"
-            >
-            <i class="fas fa-home text-2xl outline-none" />
-          </button>
-        </div>
+      <div class="flex flex-col max-w-50 cursor-pointer" on:click={() => navigate(Paths.HOME)}>
+        <img on:load={onLoad} src="/imgs/calliope_logo.png" alt="Calliope logo" />
       </div>
-    </div>
-
-
     
   </div>
 
@@ -64,7 +48,7 @@
       <img alt="decoration arrows" src="/imgs/partial_red_arrows.svg" width="225px" />
     </div> -->
 
-    <div class="flex items-center space-x-6 w-full h-full">
+    <div class="flex align-center items-center space-x-6 w-full h-full">
 
       {#each get(Menus.getMenuStore()) as menu, id}
         <div class="w-60 max-w-20vw h-full flex items-center">
@@ -84,18 +68,15 @@
         
         </div>
   
-
-        {#if id !== get(Menus.getMenuStore()).length - 1}
-          <div class="text-center ml-auto mr-auto mb-1 mt-1">
-            <img
-              on:load={onLoad}
-              class="m-auto"
-              src="/imgs/right_arrow.svg"
-              alt="right arrow icon"
-              width="30px" />
-          </div>
-        {/if}
       {/each}
     </div>
+    
   </div>
+  <div class="justify-center flex flex-row ml-4 opacity-0">
+
+    <div class="flex flex-col max-w-50" >
+      <img on:load={onLoad} src="/imgs/calliope_logo.png" alt="Calliope logo" />
+    </div>
+  
+</div>
 </div>

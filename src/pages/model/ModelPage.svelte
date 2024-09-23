@@ -12,6 +12,7 @@
   import { ModelView, state } from '../../script/stores/uiStore';
   import ModelPageStackView from './stackview/ModelPageStackView.svelte';
   import ModelPageTileView from './tileview/ModelPageTileView.svelte';
+  import TrainingComponent from '../training/TrainingComponent.svelte';
 
   const openMakeCodeInNewTab = () => {
     window.open(
@@ -28,6 +29,9 @@
         MakeCode HEX
       </StandardButton>
     </ExpandableControlBarMenu>
+    <div class="flex gap-1 ml-auto">
+      <TrainingComponent />
+    </div>
   </ControlBar>
 </div>
 

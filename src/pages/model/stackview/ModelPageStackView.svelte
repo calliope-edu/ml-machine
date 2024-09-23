@@ -17,6 +17,7 @@
   import PleaseConnectFirst from '../../../components/PleaseConnectFirst.svelte';
   import { classifier } from '../../../script/stores/Stores';
   import StaticConfiguration from '../../../StaticConfiguration';
+  import TrainingPage from '../../training/TrainingPage.svelte';
 
   // In case of manual classification, variables for evaluation
   let recordingTime = 0;
@@ -85,6 +86,6 @@
       <PleaseConnectFirst />
     {/if}
   {:else}
-    <TrainModelFirstTitle />
+    <TrainingPage />
   {/if}
 </main>
