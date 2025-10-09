@@ -70,7 +70,7 @@
       <div class="text-center m-auto" style="max-width: 40ch;">
         <h2 class="text-lg font-semibold">1. Daten aufnehmen</h2>
         <img class="w-75 m-auto" src="/imgs/1_Calliope_mini.svg" />
-        <p>Nimm Deispiele von Aktionen auf, die dein Modell erkennen soll (z. B. Schütteln und Klatschen).</p>
+        <p>Nimm Beispiele von Aktionen auf, die dein Modell erkennen soll (z. B. Schütteln und Klatschen).</p>
       </div>
 
       <div class="text-center m-auto" style="max-width: 40ch;">
